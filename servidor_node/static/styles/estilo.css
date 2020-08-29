@@ -1,0 +1,75 @@
+.print {
+	/*display:none;*/
+}
+
+.no-print { 
+	/*display:block;*/ 
+}
+.ladoalado{
+	float: left;
+}
+
+body{
+	background-color: lemonchiffon;
+}
+
+#logotipo{
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+#menu a{
+	color: white;
+	font-weight: 600;
+}
+#menu a:hover{
+	color: orange;
+}
+#menu{
+	background: rgb(33,37,41);
+	background: linear-gradient(0deg, rgba(33,37,41,1) 0%, rgba(22,23,24,1) 58%, rgba(8,86,102,1) 100%);
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+#container{
+	position: relative;
+	min-height: 100vh;
+	/*height: 600px;*/
+}
+#instrucoes{				
+}
+.centralizado{
+	text-align: center;
+}
+.botoes-largos{
+	background-color: #1d5297;
+	width: 70%;
+}
+
+
+#footer{
+	background-color: #1d5297;
+	/*background-image: url('/static/imagens/fundo_papel.jpg');*/
+	padding: 10px 10px 10px 10px ;
+	color: white;
+	height: auto;
+	border-color: #212529;
+	border-style: solid;
+	border-bottom-width: 0px;
+	border-top-width: 25px;
+	border-right-width: 0;
+	border-left-width: 0;
+	text-align-last: center;
+}
+#footer li{
+	display: inherit;
+	width: auto;
+}
+#footer a{
+	display: initial;
+	color: white;
+}
+#footer a:hover{
+	color: orange;
+}

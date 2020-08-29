@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Webchat com socketIO</title>	
+		<style media="screen">
+			body {width: 500px; margin: 0 auto; margin-top: 2rem; }
+			.send {width: 100%; margin: 0; padding: 0; margin-top: 1rem; }
+			input.text {width: 80%; margin: 0; padding: 0; padding: 5px; }
+			.btn {padding: 5px 0; width: 82px; background-color: #eee; border: 0; margin: 0; border: solid #eee;        }
+			.btn:hover {background-color: #00e4bc}
+			ul {list-style-type: none;width: 100%;padding: 0;margin: 0;}
+			li { padding: 5px 10px; }
+			li:nth-child(odd) {background-color: #eee}
+		</style>
+		<style>
+			body {
+				width: 35em;
+				margin: 0 auto;
+				font-family: Tahoma, Verdana, Arial, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Conexão WebSocket</h1>
+		
+		<script src="/qrcode.min.js"></script>
+		<!--  importar o client do socketIO-->
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<div id="msgs" >msgs: </div>
+		<div id="android-msgs" >android-msgs: </div>
+		<script>
+			// inicia o client socketIO
+			var socket = io.connect("http://cropdox.com:8080/");
+			socket.on("mensagem", function(data){
+				console.log("message é ", data);
+				//alert(data)
+			});
+			socket.on("data", function(data){
+				console.log("data is ",data);
+				//alert(data)
+			});
+			socket.on("particular User", function(data){
+				console.log("data from server ",data);
+				//alert(data)
+			});
+			
+			socket.on('mensagem android', function(msg){
+				$("#android-msgs").append("Mensagem Android foi: " + msg + "<br><br><br>");
+				console.log('escutei uma mensagem: ');					
+			});
+						
+			// Abre um popup perguntando o nome da pessoa			
+			socket.on('connect', function(){
+				$("#msgs").append("Connectado com o id: " + socket.id + "<br><br><br>");
+				meu_id = socket.id;
+				new QRCode(document.getElementById("qrcode"), meu_id);
+			});
+			
+			var meu_id = null;
+			
+			socket.emit("mensagem", "mensagem do navegador");
+			
+			
+		</script>
+		<div id="qrcode"></div>
+	 </body>
+</html>
