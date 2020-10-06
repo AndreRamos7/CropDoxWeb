@@ -74,7 +74,7 @@ app.get('/static/imagens/doc.jpg', function(req, res){
 
 // cria uma rota para fornecer o arquivo imagem
 app.get('/imagem_do_servidor', function(req, res){	
-	res.sendFile(__dirname + '/imgs/estrela.png');   
+	res.sendFile(__dirname + '/static/uploads/email_do_usuario_logado.jpg');   
 });
 
 // cria uma rota para fornecer o arquivo layout.html
