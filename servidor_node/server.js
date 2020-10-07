@@ -30,7 +30,7 @@ var storage = multer.diskStorage({
   destination: function (req, file, cb) {
 	//cb significa callback
 	//__dirname é necessário para salvar a partir do diretório de trabalho deste arquivo
-    cb(null, __dirname + '/static/uploads/');
+    cb(null, __dirname + '/static/uploads/' + email_do_usuario_logado + '/');
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname + '-' + Date.now() + '.jpg');
@@ -40,6 +40,7 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 //const upload = multer({ storage: memoreStorage });
 //const upload = multer({ dest: 'static/uploads/' });
+var email_do_usuario_logado = "default";
 
 app.use(express.static('public'));
 
@@ -74,7 +75,7 @@ app.get('/static/imagens/doc.jpg', function(req, res){
 
 // cria uma rota para fornecer o arquivo imagem
 app.get('/imagem_do_servidor', function(req, res){	
-	res.sendFile(__dirname + '/static/uploads/email_do_usuario_logado.jpg');   
+	res.sendFile(__dirname + '/static/uploads/' + email_do_usuario_logado + '.jpg');   
 });
 
 // cria uma rota para fornecer o arquivo layout.html
@@ -138,6 +139,7 @@ io.on("connection",function(client){
         //app.deleteSession(client.id);
         console.log("mensagem do cliente android: ", data);
 		var socketid = data.browser_id;		
+		email_do_usuario_logado = data.email_do_usuario_logado;		
 		//client.emit('mensagem android', data);
 		client.broadcast.to(socketid).emit('mensagem android', data);		
     });
