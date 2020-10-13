@@ -4,7 +4,7 @@ const fs = require('fs');
 const formidable = require('fs');
 const multer = require('multer');
 //================== CREDENCIAIS DO CERTIFICADO SSL ===============================
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/privkey.pem', 'utf8');
+/*const privateKey = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/chain.pem', 'utf8');
 const credentials = {
@@ -12,18 +12,18 @@ const credentials = {
 	cert: certificate,
 	ca: ca
 };
-
+*/
 const http = require('http');//.createServer(app);
-const https = require('https');
+//const https = require('https');
 const express = require('express');
 
 const app = express();
 
 // =====================  =================================
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
+//const httpsServer = https.createServer(credentials, app);
 //trocar httpsServer ou httpServer sem s ou com s
-const io = require('socket.io')(httpsServer);
+const io = require('socket.io')(httpServer);
 
 // ========================= Configura o upload com Multer
 var storage = multer.diskStorage({
@@ -146,8 +146,9 @@ io.on("connection",function(client){
 
 
 httpServer.listen(80, () => {
-   console.log('Servidor rodando em: http://cropdox.com:80');
+   console.log('Servidor rodando em: http://127.0.0.1:80');
 });
-httpsServer.listen(443, () => {
+/*httpsServer.listen(443, () => {
    console.log('Servidor rodando em: https://cropdox.com:443');
 });
+*/
