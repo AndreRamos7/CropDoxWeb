@@ -64,7 +64,7 @@ app.post('/receber-arquivo', upload.single('file'), function(req, res){
 // cria uma rota para fornecer o arquivo qrcode.min.js
 app.get('/qrcode.min.js', function(req, res){	
 	res.set('Content-Type', 'text/javascript');
-	res.sendFile(__dirname + '/qrcode.min.js');   
+	res.sendFile(__dirname + '/static/scripts/qrcode.min.js');   
 });
 
 // cria uma rota para fornecer o arquivo imagem
