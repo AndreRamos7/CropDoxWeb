@@ -6,36 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <script>
-			function includeHTML(args) {
-			  var z, i, elmnt, file, xhttp;
-			  /* Loop through a collection of all HTML elements: */
-			  z = document.getElementsByTagName("*");
-			  for (i = 0; i < z.length; i++) {
-				elmnt = z[i];
-				/*search for elements with a certain atrribute:*/
-				file = elmnt.getAttribute("w3-include-html");
-				//file += args;
-				if (file) {
-				  /* Make an HTTP request using the attribute value as the file name: */
-				  xhttp = new XMLHttpRequest();
-				  xhttp.onreadystatechange = function() {
-					if (this.readyState == 4) {
-					  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-					  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-					  /* Remove the attribute, and call this function once more: */
-					  elmnt.removeAttribute("w3-include-html");
-					  includeHTML();
-					}
-				  }
-				  xhttp.open("GET", file + args, true);
-				  xhttp.send();
-				  /* Exit the function: */
-				  return;
-				}
-			  }
-			}
-		</script>
+        
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
         
@@ -61,20 +32,26 @@
 						
 	                      <!-- Links -->
 	                      <ul class="navbar-nav">
+							<li class="nav-item" > 
+	                          <a class="nav-link " href="javascript:;" id='home'>Home</a>
+	                        </li>
 	                        <li class="nav-item" > 
-	                          <a class="nav-link" href="javascript:;" id='sobre'>Sobre</a>
+	                          <a class="nav-link " href="javascript:;" id='preview-and-print'>preview-and-print</a>
+	                        </li>
+	                        <li class="nav-item" > 
+	                          <a class="nav-link " href="javascript:;" id='about'>Sobre</a>
 	                        </li>	                        
 	                        <li class="nav-item">
-	                          <a class="nav-link" href="javascript:;" onclick="alert('oi'); includeHTML('preview-and-print.html');">Termos de uso</a>
+	                          <a class="nav-link " href="javascript:;" id='terms'>Termos de uso</a>
 	                        </li>
 	                        <li class="nav-item">
-	                          <a class="nav-link" href="javascript:;">Privacidade</a>
+	                          <a class="nav-link " href="javascript:;" id='privacy'>Privacidade</a>
 	                        </li>
 	                        <li class="nav-item">
-	                          <a class="nav-link" href="javascript:;" style="color:gold;">Premium</a>
+	                          <a class="nav-link " href="javascript:;" id='premium' style="color:gold;">Premium</a>
 	                        </li>
 							<li class="nav-item">
-	                          <a class="nav-link" href="javascript:;">Extras</a>
+	                          <a class="nav-link " href="javascript:;" id='extras'>Extras</a>
 	                        </li>
 	                      </ul>
 						</div>
@@ -89,7 +66,9 @@
 				
 				<!--   content -->
 				<div class="col-sm-11 " >
-					<div w3-include-html="/static/content/"></div>
+					<div id="conteudo">
+						<!-- CONTEÚDO AQUI -->
+					</div>
 				</div>
 				<!--    banner Ad 	-->
                 <div class="col-sm-1 bg-warning no-print" >.col-sm-1
@@ -156,17 +135,30 @@
             </div>
         </div>
 		
-		<script>
-			var page = "home.html";
-			//var page = "preview-and-print.html";
-			//var page = "about.html";
-			includeHTML(page);
-		</script>
+		
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 		
 		<!-- SESSÃO DE SCRIPTS DO SOCKET.IO -->				
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>		
 		<script src="/qrcode.min.js"></script>		
+
+		
+		<script>
+			$(document).ready(function() {								
+				$("a.nav-link").click(function(){
+					var pagina = $(this).attr("id");
+					//alert("The nav-link was clicked: " + $(this).attr("id"));
+					$("#conteudo").load("/static/content/" + pagina + ".html",function() {
+					  console.log( "Load was performed." );
+					});
+				});
+			});
+		</script>
+		
 		<script>
 			// inicia o client socketIO
 			var socket = io();//io.connect("http://cropdox.com:8080/");
@@ -194,10 +186,5 @@
 			socket.emit("mensagem", "mensagem do navegador");
 		</script>
 		
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
     </body>
 </html>

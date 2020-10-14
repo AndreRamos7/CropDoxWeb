@@ -99,6 +99,9 @@ app.get('/static/styles/print.css', function(req, res){
 app.get('/static/imagens/logo4.png', function(req, res){
 	res.sendFile(__dirname + '/static/imagens/logo4.png');  
 });
+
+
+// ROTAS PARA AS PÁGINAS HTML
 app.get('/static/content/home.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/home.html');  
@@ -148,7 +151,7 @@ io.on("connection",function(client){
 
 
 httpServer.listen(80, () => {
-   console.log('Servidor rodando em: http://127.0.0.1:80');
+   console.log('Servidor rodando em: http://192.168.0.107:80');
 });
 /*httpsServer.listen(443, () => {
    console.log('Servidor rodando em: https://cropdox.com:443');
