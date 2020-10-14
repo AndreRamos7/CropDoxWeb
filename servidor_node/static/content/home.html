@@ -23,3 +23,31 @@
 		</div>	
 	</div>	
 </div>
+
+<script>
+	// inicia o client socketIO
+	var socket = io();//io.connect("http://cropdox.com:8080/");
+	socket.on("mensagem", function(data){
+		console.log("message é ", data);
+		//alert(data)
+	});
+	socket.on("data", function(data){
+		console.log("data is ",data);
+	});	
+
+	socket.on('mensagem android', function(data){
+		$("#android-msgs").html("Mensagem Android foi data.url = " + data.url + "<br><br><br>");
+		$("img#imagem_server").attr("src", data.url);
+		console.log('escutei uma mensagem: ');					
+	});						
+			
+	socket.on('connect', function(){
+		$("#msgs").append("Connectado com o id: " + socket.id + "<br><br><br>");
+		meu_id = socket.id;
+		new QRCode(document.getElementById("qrcode"), meu_id);
+	});
+	var meu_id = null;
+
+	socket.emit("mensagem", "mensagem do navegador");
+
+</script>
