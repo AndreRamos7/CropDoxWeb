@@ -33,7 +33,8 @@ var storage = multer.diskStorage({
     cb(null, __dirname + '/static/uploads/');
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname + '-' + Date.now() + '.jpg');
+    //cb(null, file.originalname + '_' + Date.now() + '.jpg');
+    cb(null, file.originalname);
   }
 }); 
 //var memoreStorage = multer.memoryStorage()
