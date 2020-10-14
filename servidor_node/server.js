@@ -118,6 +118,15 @@ app.get('/static/content/preview-and-print.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/preview-and-print.html');  
 });
+app.get('/static/content/privacy.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/privacy.html'); 
+});
+app.get('/static/content/extras.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/extras.html'); 
+});
+
 
 //=========== CONEXAO ============================================================
 io.on("connection",function(client){
