@@ -75,7 +75,7 @@ app.get('/static/imagens/doc.jpg', function(req, res){
 
 // cria uma rota para fornecer o arquivo imagem
 app.get('/imagem_do_servidor', function(req, res){	
-	res.sendFile(__dirname + '/static/uploads/email_do_usuario_logado.jpg');   
+	res.sendFile(__dirname + '/static/uploads/' + email_do_usuario_logado + '.jpg');   
 });
 
 // cria uma rota para fornecer o arquivo layout.html
@@ -139,6 +139,7 @@ io.on("connection",function(client){
         //app.deleteSession(client.id);
         console.log("mensagem do cliente android: ", data);
 		var socketid = data.browser_id;		
+		email_do_usuario_logado = data.email_do_usuario_logado;
 		//client.emit('mensagem android', data);
 		client.broadcast.to(socketid).emit('mensagem android', data);		
     });
