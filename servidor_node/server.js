@@ -29,7 +29,7 @@ var storage = multer.diskStorage({
   destination: function (req, file, cb) {
 	//cb significa callback
 	//__dirname é necessário para salvar a partir do diretório de trabalho deste arquivo
-    cb(null, __dirname + '/static/uploads/');
+    cb(null, __dirname + '/static/uploads/' + email_do_usuario_logado + '/');
   },
   filename: function (req, file, cb) {
     //cb(null, file.originalname + '_' + Date.now() + '.jpg');
@@ -40,6 +40,7 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 //const upload = multer({ storage: memoreStorage });
 //const upload = multer({ dest: 'static/uploads/' });
+
 var email_do_usuario_logado = "sem-email";
 
 app.use(express.static('public'));
