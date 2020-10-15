@@ -16,7 +16,6 @@ const credentials = {
 const http = require('http');//.createServer(app);
 //const https = require('https');
 const express = require('express');
-
 const app = express();
 
 // =====================  =================================
@@ -41,6 +40,7 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 //const upload = multer({ storage: memoreStorage });
 //const upload = multer({ dest: 'static/uploads/' });
+var email_do_usuario_logado = "sem-email";
 
 app.use(express.static('public'));
 

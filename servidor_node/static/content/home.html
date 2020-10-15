@@ -1,27 +1,66 @@
 <div class="container-fluid" id="instrucoes">
-	<h3>Passo-a-passo para exibir sua imagem neste navegador:</h3>
-	<div class="row" id="">
-		<div class="col-sm-6" >
-			<header>header</header>								
+	<h3 class="no-print">Passo-a-passo para exibir sua imagem neste navegador:</h3>
+	<div class="row" id="">		
+		<div class="col-sm-9" >			
+			<div class="container-fluid" id="preview">
+				<h3 class="no-print">Sua Imagem</h3>
+				<div class="row" id="">
+					<div class="col-sm-6">
+						<header class="no-print">header preview</header>						
+						<article class="print">
+							<p ><img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=300></p>
+						</article>
+					</div>	
+					<div class="col-sm-6 no-print" >
+						<form action="javascript:;">
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary botoes-largos">Download</button>
+							</div>
+							<div class="form-group">
+								<button  class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>
+							</div>
+							<div class="form-group form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="radio" name="remember" required checked> PDF
+									<div class="valid-feedback">Valid.</div>
+									<div class="invalid-feedback">Check this checkbox to continue.</div>
+								</label>
+							</div>									
+							<div class="form-group form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="radio" name="remember" required> JPG
+									<div class="valid-feedback">Valid.</div>
+									<div class="invalid-feedback">Check this checkbox to continue.</div>
+								</label>
+							</div>
+							<div class="form-group">
+								<span class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>
+								<span class="badge badge-warning">Dispositivo desconectado em tal dia, não logado ..</span>
+							</div>									
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary  botoes-largos">Disconectar</button>
+							</div>
+						</form>
+					</div>	
+				</div>	
+			</div>	
+		</div>
+		<div class="col-sm-3  no-print" >
+			<header>Header</header>		
+			<div class="no-print">
+				<div id="msgs" >msgs: </div>
+				<div id="qrcode"></div>
+				<div id="android-msgs" >android-msgs: </div>						
+			</div>		
 			<article>
 				<ol>
 					<li>Inicie o App 
 						<a target="_blank" href='https://play.google.com/store/apps/details?id=com.genialsoftwares.utilities.cropdox&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>CropDox</a>
 					no seu Smartphone</li>
-					<li>Tire uma foto</li>
-					<li>Escaneie o código QR ao lado.</li>
+					<li>No aplicativo tire uma foto</li>
+					<li>Escaneie o código QR.</li>
 				</ol>
-			</article>
-			
-			<div class="" >
-				<div id="msgs" >msgs: </div>
-				<div id="qrcode"></div>
-				<div id="android-msgs" >android-msgs: </div>						
-			</div>			
-		</div>	
-		<div class="col-sm-6" >			
-			<img id="imagem_server" src="" width=300 height=300 />
-			<!-- <img src="/static/imagens/frame.png" /> -->		
+			</article>			
 		</div>	
 	</div>	
 </div>
@@ -29,6 +68,7 @@
 <script>
 	// inicia o client socketIO
 	var socket = io();//io.connect("http://cropdox.com:8080/");
+	
 	socket.on("mensagem", function(data){
 		console.log("message é ", data);
 		//alert(data)
