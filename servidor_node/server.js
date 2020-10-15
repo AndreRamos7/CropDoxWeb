@@ -4,7 +4,7 @@ const fs = require('fs');
 const formidable = require('fs');
 const multer = require('multer');
 //================== CREDENCIAIS DO CERTIFICADO SSL ===============================
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/privkey.pem', 'utf8');
+/*const privateKey = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/cropdox.com/chain.pem', 'utf8');
 const credentials = {
@@ -12,18 +12,18 @@ const credentials = {
 	cert: certificate,
 	ca: ca
 };
-
+*/
 const http = require('http');//.createServer(app);
-const https = require('https');
+//const https = require('https');
 const express = require('express');
 
 const app = express();
 
 // =====================  =================================
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
+//const httpsServer = https.createServer(credentials, app);
 //trocar httpsServer ou httpServer sem s ou com s
-const io = require('socket.io')(httpsServer);
+const io = require('socket.io')(httpServer);
 
 // ========================= Configura o upload com Multer
 var storage = multer.diskStorage({
@@ -33,7 +33,8 @@ var storage = multer.diskStorage({
     cb(null, __dirname + '/static/uploads/' + email_do_usuario_logado + '/');
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname + '-' + Date.now() + '.jpg');
+    //cb(null, file.originalname + '_' + Date.now() + '.jpg');
+    cb(null, file.originalname);
   }
 }); 
 //var memoreStorage = multer.memoryStorage()
@@ -65,7 +66,7 @@ app.post('/receber-arquivo', upload.single('file'), function(req, res){
 // cria uma rota para fornecer o arquivo qrcode.min.js
 app.get('/qrcode.min.js', function(req, res){	
 	res.set('Content-Type', 'text/javascript');
-	res.sendFile(__dirname + '/qrcode.min.js');   
+	res.sendFile(__dirname + '/static/scripts/qrcode.min.js');   
 });
 
 // cria uma rota para fornecer o arquivo imagem
@@ -99,6 +100,9 @@ app.get('/static/styles/print.css', function(req, res){
 app.get('/static/imagens/logo4.png', function(req, res){
 	res.sendFile(__dirname + '/static/imagens/logo4.png');  
 });
+
+
+// ROTAS PARA AS PÁGINAS HTML
 app.get('/static/content/home.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/home.html');  
@@ -115,6 +119,15 @@ app.get('/static/content/preview-and-print.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/preview-and-print.html');  
 });
+app.get('/static/content/privacy.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/privacy.html'); 
+});
+app.get('/static/content/extras.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/extras.html'); 
+});
+
 
 //=========== CONEXAO ============================================================
 io.on("connection",function(client){
@@ -139,7 +152,7 @@ io.on("connection",function(client){
         //app.deleteSession(client.id);
         console.log("mensagem do cliente android: ", data);
 		var socketid = data.browser_id;		
-		email_do_usuario_logado = data.email_do_usuario_logado;		
+		email_do_usuario_logado = data.email_do_usuario_logado;
 		//client.emit('mensagem android', data);
 		client.broadcast.to(socketid).emit('mensagem android', data);		
     });
@@ -148,8 +161,9 @@ io.on("connection",function(client){
 
 
 httpServer.listen(80, () => {
-   console.log('Servidor rodando em: http://cropdox.com:80');
+   console.log('Servidor rodando em: http://192.168.0.107:80');
 });
-httpsServer.listen(443, () => {
+/*httpsServer.listen(443, () => {
    console.log('Servidor rodando em: https://cropdox.com:443');
 });
+*/
