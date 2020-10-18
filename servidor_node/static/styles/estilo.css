@@ -32,6 +32,12 @@ body{
 	border-radius: 5px;
 }
 
+#donativos{
+	padding-left: 50px;
+	padding-top: 20px;
+	
+}
+
 #container{
 	position: relative;
 	min-height: 100vh;
