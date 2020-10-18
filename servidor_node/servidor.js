@@ -80,11 +80,8 @@ app.get('/qrcode.min.js', function(req, res){
 app.get('/static/imagens/doc.jpg', function(req, res){	
 	res.sendFile(__dirname + '/static/imagens/doc.jpg');   
 });
+
 // cria uma rota para fornecer o arquivo imagem
-app.get('/static/imagens/load.gif', function(req, res){	
-	res.sendFile(__dirname + '/static/imagens/load.gif');   
-});
-// cria uma rota para fornecer o arquivo de imagem
 app.get('/imagem_do_servidor', function(req, res){	
 	res.sendFile(__dirname + '/static/uploads/' + md5(email_do_usuario_logado) + '.jpg');   
 });
@@ -136,10 +133,6 @@ app.get('/static/content/privacy.html', function(req, res){
 app.get('/static/content/extras.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/extras.html'); 
-});
-app.get('/static/content/manutencao.html', function(req, res){
-	res.set('Content-Type', 'text/html');
-	res.sendFile(__dirname + '/static/content/manutencao.html'); 
 });
 
 
