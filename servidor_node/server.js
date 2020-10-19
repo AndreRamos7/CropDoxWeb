@@ -20,6 +20,7 @@ const credentials = {
 	ca: ca
 };
 
+
 const http = require('http');//.createServer(app);
 const https = require('https');
 const express = require('express');
@@ -32,6 +33,8 @@ const httpsServer = https.createServer(credentials, app);
 const io = require('socket.io')(httpsServer);
 
 // ========================= Configura o upload com Multer
+
+var email_do_usuario_logado = "default";
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
 	//cb significa callback
@@ -48,9 +51,7 @@ const upload = multer({ storage: storage });
 //const upload = multer({ storage: memoreStorage });
 //const upload = multer({ dest: 'static/uploads/' });
 
-var email_do_usuario_logado = "default";
-
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 // ============================ ROTAS =============================================
 
@@ -86,7 +87,7 @@ app.get('/static/imagens/load.gif', function(req, res){
 });
 // cria uma rota para fornecer o arquivo de imagem
 app.get('/imagem_do_servidor', function(req, res){	
-	res.sendFile(__dirname + '/static/uploads/' + md5(email_do_usuario_logado) + '.jpg');   
+	res.sendFile(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg');   
 });
 
 // cria uma rota para fornecer o arquivo layout.html
@@ -167,7 +168,7 @@ io.on("connection",function(client){
         console.log("mensagem do cliente android: ", data);
 		var socketid = data.browser_id;		
 		email_do_usuario_logado = data.email_do_usuario_logado;
-		email_do_usuario_logado = md5(email_do_usuario_logado);
+		email_do_usuario_logado = email_do_usuario_logado;
 		//client.emit('mensagem android', data);
 		client.broadcast.to(socketid).emit('mensagem android', data);		
     });
