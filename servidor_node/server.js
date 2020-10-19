@@ -39,7 +39,7 @@ var storage = multer.diskStorage({
   destination: function (req, file, cb) {
 	//cb significa callback
 	//__dirname é necessário para salvar a partir do diretório de trabalho deste arquivo
-    cb(null, __dirname + '/static/uploads/' + email_do_usuario_logado + '/');
+    cb(null, __dirname + '/static/uploads/default/');
   },
   filename: function (req, file, cb) {
     //cb(null, file.originalname + '_' + Date.now() + '.jpg');
@@ -68,6 +68,7 @@ app.post('/receber-arquivo', upload.single('file'), function(req, res){
 	req.file.originalname + "<h2>Upload realizado com sucesso em: filename</h2>" + 
 	req.file.filename+ " <h2>Upload realizado com sucesso em path: </h2>" + 
 	req.file.path);  
+	
 	console.log('<h2>Upload realizado com sucesso</h2>');
 });
 
@@ -167,8 +168,8 @@ io.on("connection",function(client){
         //app.deleteSession(client.id);
         console.log("mensagem do cliente android: ", data);
 		var socketid = data.browser_id;		
-		email_do_usuario_logado = data.email_do_usuario_logado;
-		email_do_usuario_logado = email_do_usuario_logado;
+		email_do_usuario_logado = md5(data.email_do_usuario_logado);
+		//email_do_usuario_logado = email_do_usuario_logado;
 		//client.emit('mensagem android', data);
 		client.broadcast.to(socketid).emit('mensagem android', data);		
     });
@@ -177,7 +178,7 @@ io.on("connection",function(client){
 
 
 httpServer.listen(80, () => {
-   console.log('Servidor rodando em: http://192.168.0.107:80');
+   console.log('Servidor rodando em: http://cropdox.com:80');
 });
 httpsServer.listen(443, () => {
    console.log('Servidor rodando em: https://cropdox.com:443');
