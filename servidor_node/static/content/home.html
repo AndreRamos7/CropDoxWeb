@@ -82,6 +82,7 @@
 	socket.on('connect', function(){
 		$("#msgs").text("Connectado com o id: " + socket.id);
 		meu_id = socket.id;
+		$("#qrcode").html("");
 		new QRCode(document.getElementById("qrcode"), meu_id);
 	});
 	var meu_id = null;
