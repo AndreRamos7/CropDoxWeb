@@ -183,4 +183,28 @@
 		</script>
 		
     </body>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+		 https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  var firebaseConfig = {
+		apiKey: "AIzaSyBn7Rf81sSXBkECdxObZLzjUPYKCXt48-M",
+		authDomain: "projeto-escaneador.firebaseapp.com",
+		databaseURL: "https://projeto-escaneador.firebaseio.com",
+		projectId: "projeto-escaneador",
+		storageBucket: "projeto-escaneador.appspot.com",
+		messagingSenderId: "67205684055",
+		appId: "1:67205684055:web:9761a02a1ddfdcaccdbc12",
+		measurementId: "G-E4X0EH197T"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
 </html>

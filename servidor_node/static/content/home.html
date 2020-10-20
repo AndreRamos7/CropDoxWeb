@@ -1,14 +1,14 @@
-<div class="container-fluid" id="instrucoes">
-	<h3 class="no-print">Passo-a-passo para exibir sua imagem neste navegador:</h3>
+<div class="container-fluid" id="instrucoes">	
 	<div class="row" id="">		
 		<div class="col-sm-9" >			
 			<div class="container-fluid" id="preview">
 				<h3 class="no-print">Sua Imagem</h3>
 				<div class="row" id="">
 					<div class="col-sm-6">
-						<header class="no-print">header preview</header>						
+						<header class="no-print">Previsualização</header>						
 						<article class="print">
 							<p ><img id="imagem_server" src="/static/imagens/doc.jpg" width=400 height=250></p>
+							<div id="android-msgs" ><span class='badge badge-success'>android-msgs: </span></div>						
 						</article>
 					</div>	
 					<div class="col-sm-6 no-print" >
@@ -35,7 +35,7 @@
 							</div>
 							<div class="form-group">
 								<span id="msgs" class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>
-								<span class="badge badge-warning">Dispositivo desconectado em tal dia, não logado ..</span>
+								<span class="badge badge-warning">TODO..</span>
 							</div>									
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary  botoes-largos">Disconectar</button>
@@ -46,10 +46,9 @@
 			</div>	
 		</div>
 		<div class="col-sm-3  no-print" >
-			<header>Header</header>		
+			<header>Código QR</header>		
 			<div class="no-print">				
-				<div id="qrcode"></div>
-				<div id="android-msgs" >android-msgs: </div>						
+				<div id="qrcode"></div>				
 			</div>		
 			<article>
 				<ol>
@@ -74,7 +73,7 @@
 	});
 
 	socket.on('mensagem android', function(data){
-		$("#android-msgs").html("Mensagem Android foi data.url = " + data.url + "<br><br><br>");
+		$("#android-msgs").html("<span class='badge badge-success'>Mensagem Android foi: data.url = " + data.url + "</span><br>");
 		$("img#imagem_server").attr("src", data.url);
 		console.log('escutei uma mensagem: ');					
 	});						
