@@ -1,4 +1,4 @@
-<div class="container-fluid" id="instrucoes">	
+<div class="container-fluid">	
 	<div class="row" id="">		
 		<div class="col-sm-9" >			
 			<div class="container-fluid" id="preview">
@@ -8,7 +8,7 @@
 						<header class="no-print">Previsualização</header>						
 						<article class="print">
 							<p ><img id="imagem_server" src="/static/imagens/doc.jpg" width=400 height=250></p>
-							<div id="android-msgs" ><span class='badge badge-success'>android-msgs: </span></div>						
+							<div id="android-msgs" class="no-print"><span class='badge badge-success'>android-msgs: </span></div>						
 						</article>
 					</div>	
 					<div class="col-sm-6 no-print" >
@@ -33,8 +33,7 @@
 									<div class="invalid-feedback">Check this checkbox to continue.</div>
 								</label>
 							</div>
-							<div class="form-group">
-								<span id="msgs" class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>
+							<div class="form-group">								
 								<span class="badge badge-warning">TODO..</span>
 							</div>									
 							<div class="form-group">
@@ -49,8 +48,9 @@
 			<header>Código QR</header>		
 			<div class="no-print">				
 				<div id="qrcode"></div>				
-			</div>		
-			<article>
+			</div>
+			<span id="msgs" class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>			
+			<article id="instrucoes">
 				<ol>
 					<li>Inicie o App 
 						<a target="_blank" href='https://play.google.com/store/apps/details?id=com.cropdox'>CropDox</a>

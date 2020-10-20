@@ -15,12 +15,15 @@
 		<!-- CSS para impressão -->
 		<link rel="stylesheet" type="text/css" href="/static/styles/print.css" media="print" />
 		<script data-ad-client="ca-pub-5217265578005284" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+		
+
     </head>
     <body >
         <div class="container-fluid no-print">
             <div class="row">
                 <div class="col-sm-2"  id="logotipo"  >
-                    <a href="#"><img src="/static/imagens/logo4.png" width="100%" height="100%"></a>
+                    <a href="#"><img src="/static/imagens/logo4.png" width="100%" height="85%"></a>
                 </div>
                 <div class="col-sm-8" >
                     <!-- A grey horizontal navbar that becomes vertical on small screens -->
@@ -49,10 +52,13 @@
 	                          <a class="nav-link " href="javascript:;" id='404' style="color:gold;">Premium</a>
 	                        </li>
 							<li class="nav-item">
-	                          <a class="nav-link " href="javascript:;" id='extras'>Extras</a>
-	                        </li>
+								<a class="nav-link " href="javascript:;" id='extras'>Extras</a>								
+							</li>
 							<li class="nav-item">
 								<a class="nav-link " href="javascript:;" id='manutencao'>Manutenção</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link " href="javascript:;" id='doacao'>Doação</a>
 							</li>
 	                      </ul>
 						</div>
@@ -163,16 +169,19 @@
 		
 		<!-- SESSÃO DE SCRIPTS DO SOCKET.IO -->				
 		<script src="/socket.io/socket.io.js"></script>		
-		<script src="/qrcode.min.js"></script>		
+		<script src="/qrcode.min.js"></script>
 
-		
 		<script>
 			$(document).ready(function() {
 				var pagina = "home";
 				$("#conteudo").load("/static/content/" + pagina + ".html",function() {
 					console.log( "Página home carregada!!" );
-				});			
+				});
+				
 				$("a.nav-link").click(function(){
+					$("a.nav-link").css({border: "0" });
+					$(this).css({color: "#ffe", border: "2px solid #ccc" });
+										
 					pagina = $(this).attr("id");
 					//alert("The nav-link was clicked: " + $(this).attr("id"));
 					$("#conteudo").load("/static/content/" + pagina + ".html",function() {

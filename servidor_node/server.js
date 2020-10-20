@@ -143,6 +143,10 @@ app.get('/static/content/manutencao.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/manutencao.html'); 
 });
+app.get('/static/content/doacao.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/doacao.html'); 
+});
 
 
 //=========== CONEXAO ============================================================
