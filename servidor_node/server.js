@@ -168,7 +168,7 @@ io.on("connection",function(client){
         //app.deleteSession(client.id);
         console.log("mensagem do cliente android: ", data);
 		var socketid = data.browser_id;		
-		email_do_usuario_logado = md5(data.email_do_usuario_logado);
+		email_do_usuario_logado = data.email_do_usuario_logado;
 		//email_do_usuario_logado = email_do_usuario_logado;
 		//client.emit('mensagem android', data);
 		client.broadcast.to(socketid).emit('mensagem android', data);		
