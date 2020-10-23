@@ -30,7 +30,6 @@ const app = express();
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 //trocar httpsServer ou httpServer sem s ou com s
-const io0 = require('socket.io')(httpServer);
 const io = require('socket.io')(httpsServer);
 
 // ========================= Configura o upload com Multer
@@ -61,7 +60,6 @@ app.get('/upload.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/upload.html');   
 });
-
 
 // cria uma rota para reveber arquivos enviados (as fotos, no caso)	
 app.post('/receber-arquivo', upload.single('file'), function(req, res){		
@@ -95,8 +93,7 @@ app.get('/imagem_do_servidor', function(req, res){
 
 // cria uma rota para fornecer o arquivo layout.html
 app.get('/', function(req, res){
-	console.log("https://" + req.headers.host + req.url)
-	res.set('Content-Type', 'text/html');
+	//res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/layout.html');  
 });
 // cria uma rota para fornecer o arquivo imagens

@@ -8,6 +8,9 @@
 .ladoalado{
 	float: left;
 }
+#codigo_qr{ 
+	display: flex;
+}
 
 body{
 	background-color: lemonchiffon;
