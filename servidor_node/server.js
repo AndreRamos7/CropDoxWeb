@@ -1,7 +1,6 @@
 //const content = require('fs').readFileSync(__dirname + '/index.html', 'utf8');
 //const qrcode = require('fs').readFileSync(__dirname + '/qrcode.min.js', 'utf8');
 const fs = require('fs');
-const formidable = require('fs');
 const multer = require('multer');
 var crypto = require('crypto');
 var md5 = require('md5');
@@ -82,15 +81,27 @@ app.get('/qrcode.min.js', function(req, res){
 
 // cria uma rota para fornecer o arquivo imagem
 app.get('/static/imagens/doc.jpg', function(req, res){	
-	res.sendFile(__dirname + '/static/imagens/doc.jpg');   
+	res.sendFile(__dirname + '/static/imagens/fundo_papel.jpg');   
 });
 // cria uma rota para fornecer o arquivo imagem
 app.get('/static/imagens/load.gif', function(req, res){	
 	res.sendFile(__dirname + '/static/imagens/load.gif');   
 });
+// cria uma rota para fornecer o arquivo imagem
+app.get('/static/imagens/download-icon.png', function(req, res){	
+	res.sendFile(__dirname + '/static/imagens/download-icon.png');   
+});
+// cria uma rota para fornecer o arquivo imagem
+app.get('/static/imagens/print-icon.png', function(req, res){	
+	res.sendFile(__dirname + '/static/imagens/print-icon.png');   
+});
 // cria uma rota para fornecer o arquivo de imagem
 app.get('/imagem_do_servidor', function(req, res){	
 	res.sendFile(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg');   
+});
+// cria uma rota para fornecer o arquivo de imagem
+app.get('/imagem_do_servidor/download', function(req, res){	
+	res.download(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg');   
 });
 
 // cria uma rota para fornecer o arquivo layout.html
