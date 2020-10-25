@@ -1,5 +1,21 @@
 <div class="container-fluid">	
-	<div class="row" id="">		
+	<div class="row" id="">	
+		<div class="col-sm-3  no-print" >
+			<header>Código QR</header>		
+			<div class="no-print" id="codigo_qr">				
+				<div id="qrcode" ></div>				
+			</div>
+			<span id="msgs" class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>			
+			<article id="instrucoes">
+				<ol>
+					<li>Inicie o App 
+						<a target="_blank" href='https://play.google.com/store/apps/details?id=com.cropdox'>CropDox</a>
+					no seu Smartphone</li>
+					<li>No aplicativo tire uma foto</li>
+					<li>Escaneie o código QR.</li>
+				</ol>
+			</article>			
+		</div>	
 		<div class="col-sm-9" >			
 			<div class="container-fluid" id="preview">
 				<h3 class="no-print">Pré-visualização </h3>
@@ -8,7 +24,7 @@
 						<header class="no-print">Sua Imagem</header>						
 						<article class="print">
 							<p>
-								<img id="imagem_server" src="/static/imagens/doc.jpg" width=400 height=250>
+								<img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=200>
 							</p>
 							<div id="android-msgs" class="no-print">
 								<span class='badge badge-success'>android-msgs: </span>
@@ -40,7 +56,7 @@
 							</div>
 							-->
 							<div class="form-group">								
-								<span class="badge badge-warning">TODO..</span>
+								<span class="badge badge-warning">TO DO..</span>
 							</div>									
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary  botoes-largos">Disconectar</button>
@@ -50,23 +66,27 @@
 				</div>	
 			</div>	
 		</div>
-		<div class="col-sm-3  no-print" >
-			<header>Código QR</header>		
-			<div class="no-print" id="codigo_qr">				
-				<div id="qrcode" ></div>				
-			</div>
-			<span id="msgs" class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>			
-			<article id="instrucoes">
-				<ol>
-					<li>Inicie o App 
-						<a target="_blank" href='https://play.google.com/store/apps/details?id=com.cropdox'>CropDox</a>
-					no seu Smartphone</li>
-					<li>No aplicativo tire uma foto</li>
-					<li>Escaneie o código QR.</li>
-				</ol>
-			</article>			
-		</div>	
 	</div>	
+	
+	<div class="jumbotron row no-print">
+		<div class="col-md-4">
+			<h2>Getting started</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et arcu id elit varius scelerisque. Morbi quis porttitor ligula. Donec pellentesque tellus urna, vitae accumsan felis feugiat sit amet. Sed in elementum justo. Nullam nec urna fermentum, tincidunt felis in, tempor purus. In ac dapibus mi, nec finibus enim. Duis ultrices ipsum et nulla mollis, quis maximus nunc sagittis. Aliquam interdum eros pellentesque, tristique nunc ac, auctor ex. Cras porttitor sit amet mauris id interdum. Nunc sem nibh, luctus non felis eu, hendrerit malesuada risus. Phasellus a vestibulum nulla. Quisque ultricies viverra eros, a venenatis justo vehicula nec. Donec id est vel metus dapibus eleifend. Fusce id consequat nisi, at dapibus odio. Quisque accumsan ultrices ultrices.
+			</p>
+			<p><a class="btn btn-default" href="javascript:;">Learn more »</a></p>
+		</div>
+		<div class="col-md-4">
+			<h2>Get more libraries</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et arcu id elit varius scelerisque. Morbi quis porttitor ligula. Donec pellentesque tellus urna, vitae accumsan felis feugiat sit amet. Sed in elementum justo. Nullam nec urna fermentum, tincidunt felis in, tempor purus. In ac dapibus mi, nec finibus enim. Duis ultrices ipsum et nulla mollis, quis maximus nunc sagittis. Aliquam interdum eros pellentesque, tristique nunc ac, auctor ex. Cras porttitor sit amet mauris id interdum. Nunc sem nibh, luctus non felis eu, hendrerit malesuada risus. Phasellus a vestibulum nulla. Quisque ultricies viverra eros, a venenatis justo vehicula nec. Donec id est vel metus dapibus eleifend. Fusce id consequat nisi, at dapibus odio. Quisque accumsan ultrices ultrices.</p>
+			<p><a class="btn btn-default" href="javascript:;">Learn more »</a></p>
+		</div>
+		<div class="col-md-4">
+			<h2>Lorem ipsum </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et arcu id elit varius scelerisque. Morbi quis porttitor ligula. Donec pellentesque tellus urna, vitae accumsan felis feugiat sit amet. Sed in elementum justo. Nullam nec urna fermentum, tincidunt felis in, tempor purus. In ac dapibus mi, nec finibus enim. Duis ultrices ipsum et nulla mollis, quis maximus nunc sagittis. Aliquam interdum eros pellentesque, tristique nunc ac, auctor ex. Cras porttitor sit amet mauris id interdum. Nunc sem nibh, luctus non felis eu, hendrerit malesuada risus. Phasellus a vestibulum nulla. Quisque ultricies viverra eros, a venenatis justo vehicula nec. Donec id est vel metus dapibus eleifend. Fusce id consequat nisi, at dapibus odio. Quisque accumsan ultrices ultrices..</p>
+			<p><a class="btn btn-default" href="javascript:;">Learn more »</a></p>
+		</div>
+	</div>
 </div>
 
 <script>
