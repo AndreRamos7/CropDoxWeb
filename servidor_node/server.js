@@ -123,8 +123,8 @@ app.get('/static/styles/print.css', function(req, res){
 	res.set('Content-Type', 'text/css');
 	res.sendFile(__dirname + '/static/styles/print.css');  
 });
-app.get('/static/imagens/logo4.png', function(req, res){
-	res.sendFile(__dirname + '/static/imagens/logo4.png');  
+app.get('/static/imagens/logo.svg', function(req, res){
+	res.sendFile(__dirname + '/static/imagens/logo.svg');  
 });
 
 

@@ -1,6 +1,6 @@
 <div class="container-fluid">	
 	<div class="row" id="">	
-		<div class="col-sm-3  no-print" >
+		<div class="col-sm-3 no-print" >
 			<header>Código QR</header>		
 			<div class="no-print" id="codigo_qr">				
 				<div id="qrcode" ></div>				
@@ -16,85 +16,46 @@
 				</ol>
 			</article>			
 		</div>	
-		<div class="col-sm-9" >			
-			<div class="container-fluid" id="preview">
-				<h3 class="no-print">Pré-visualização </h3>
-				<div class="row" id="">
-					<div class="col-sm-6">
-						<header class="no-print">Sua Imagem</header>						
-						<article class="print">
-							<p>
-								<img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=200>
-							</p>
-							<div id="android-msgs" class="no-print">
-								<span class='badge badge-success'>android-msgs: </span>
-							</div>						
-						</article>
-					</div>	
-					<div class="col-sm-6 no-print" >
-						<form action="javascript:;">
-							<div class="form-group">
-								<a href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>
-							</div>
-							<div class="form-group">
-								<button  class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>
-							</div>
-							<!--
-							<div class="form-group form-check">
-								<label class="form-check-label">
-									<input class="form-check-input" type="radio" name="remember" required checked> PDF
-									<div class="valid-feedback">Valid.</div>
-									<div class="invalid-feedback">Check this checkbox to continue.</div>
-								</label>
-							</div>									
-							<div class="form-group form-check">
-								<label class="form-check-label">
-									<input class="form-check-input" type="radio" name="remember" required> JPG
-									<div class="valid-feedback">Valid.</div>
-									<div class="invalid-feedback">Check this checkbox to continue.</div>
-								</label>
-							</div>
-							-->
-							<div class="form-group">								
-								<span class="badge badge-warning">TO DO..</span>
-							</div>									
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary  botoes-largos">Disconectar</button>
-							</div>
-						</form>
-					</div>	
-				</div>	
-			</div>	
-		</div>
+		<div class="col-sm-5">
+			<h3 class="no-print">Pré-visualização </h3>
+			<header class="no-print">Sua Imagem</header>						
+			<article class="print">
+				<p>
+					<img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=200>
+				</p>
+				<div id="android-msgs" class="no-print">
+					<span class='badge badge-success'>android-msgs: </span>
+				</div>						
+			</article>
+		</div>	
+		<div class="col-sm-4 no-print" >
+			<h1> </h1>
+			<form action="javascript:;">
+				<div class="form-group">
+					<a href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>
+				</div>
+				<div class="form-group">
+					<button  class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>
+				</div>				
+				<div class="form-group">								
+					<span class="badge badge-warning">TO DO..</span>
+				</div>									
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary  botoes-largos">Disconectar</button>
+				</div>
+			</form>
+		</div>	
 	</div>	
+</div>	
+
 	
-	<div class="jumbotron row no-print">
-		<div class="col-md-4">
-			<h2>Getting started</h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et arcu id elit varius scelerisque. Morbi quis porttitor ligula. Donec pellentesque tellus urna, vitae accumsan felis feugiat sit amet. Sed in elementum justo. Nullam nec urna fermentum, tincidunt felis in, tempor purus. In ac dapibus mi, nec finibus enim. Duis ultrices ipsum et nulla mollis, quis maximus nunc sagittis. Aliquam interdum eros pellentesque, tristique nunc ac, auctor ex. Cras porttitor sit amet mauris id interdum. Nunc sem nibh, luctus non felis eu, hendrerit malesuada risus. Phasellus a vestibulum nulla. Quisque ultricies viverra eros, a venenatis justo vehicula nec. Donec id est vel metus dapibus eleifend. Fusce id consequat nisi, at dapibus odio. Quisque accumsan ultrices ultrices.
-			</p>
-			<p><a class="btn btn-default" href="javascript:;">Learn more »</a></p>
-		</div>
-		<div class="col-md-4">
-			<h2>Get more libraries</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et arcu id elit varius scelerisque. Morbi quis porttitor ligula. Donec pellentesque tellus urna, vitae accumsan felis feugiat sit amet. Sed in elementum justo. Nullam nec urna fermentum, tincidunt felis in, tempor purus. In ac dapibus mi, nec finibus enim. Duis ultrices ipsum et nulla mollis, quis maximus nunc sagittis. Aliquam interdum eros pellentesque, tristique nunc ac, auctor ex. Cras porttitor sit amet mauris id interdum. Nunc sem nibh, luctus non felis eu, hendrerit malesuada risus. Phasellus a vestibulum nulla. Quisque ultricies viverra eros, a venenatis justo vehicula nec. Donec id est vel metus dapibus eleifend. Fusce id consequat nisi, at dapibus odio. Quisque accumsan ultrices ultrices.</p>
-			<p><a class="btn btn-default" href="javascript:;">Learn more »</a></p>
-		</div>
-		<div class="col-md-4">
-			<h2>Lorem ipsum </h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et arcu id elit varius scelerisque. Morbi quis porttitor ligula. Donec pellentesque tellus urna, vitae accumsan felis feugiat sit amet. Sed in elementum justo. Nullam nec urna fermentum, tincidunt felis in, tempor purus. In ac dapibus mi, nec finibus enim. Duis ultrices ipsum et nulla mollis, quis maximus nunc sagittis. Aliquam interdum eros pellentesque, tristique nunc ac, auctor ex. Cras porttitor sit amet mauris id interdum. Nunc sem nibh, luctus non felis eu, hendrerit malesuada risus. Phasellus a vestibulum nulla. Quisque ultricies viverra eros, a venenatis justo vehicula nec. Donec id est vel metus dapibus eleifend. Fusce id consequat nisi, at dapibus odio. Quisque accumsan ultrices ultrices..</p>
-			<p><a class="btn btn-default" href="javascript:;">Learn more »</a></p>
-		</div>
-	</div>
-</div>
 
 <script>
 	// inicia o client socketIO
 	var socket = io();//io.connect("http://cropdox.com:8080/");
 	
 	socket.on("mensagem", function(data){
-		console.log("message é ", data);
+		console.log("mensagem é ", data);
 		//alert(data)
 	});
 
