@@ -54,13 +54,17 @@ const upload = multer({ storage: storage });
 //app.use(express.static('public'));
 
 // ============================ ROTAS =============================================
-
+app.use((req, res, next) => { //Cria um middleware onde todas as requests passam por ele
+    if (req.secure) //Se a requisição feita é segura (é HTTPS)
+        next(); //Não precisa redirecionar, passa para os próximos middlewares que servirão com o conteúdo desejado
+    else //Se a requisição não for segura (é HTTP)
+        res.redirect('https://' + req.headers.host + req.url);
+});
 // cria uma rota para fornecer o arquivo index.html
 app.get('/upload.html', function(req, res){	
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/upload.html');   
 });
-
 
 // cria uma rota para reveber arquivos enviados (as fotos, no caso)	
 app.post('/receber-arquivo', upload.single('file'), function(req, res){		
