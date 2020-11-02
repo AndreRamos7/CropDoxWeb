@@ -114,6 +114,12 @@ app.get('/', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/layout.html');  
 });
+app.get('/acentos', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/layout.html'); 
+});
+
+
 // cria uma rota para fornecer o arquivo imagens
 app.get('/static/imagens/favicon.ico', function(req, res){
 	res.sendFile(__dirname + '/static/imagens/favicon.ico');  
@@ -121,6 +127,10 @@ app.get('/static/imagens/favicon.ico', function(req, res){
 app.get('/static/styles/estilo.css', function(req, res){
 	res.set('Content-Type', 'text/css');
 	res.sendFile(__dirname + '/static/styles/estilo.css');  
+});
+app.get('/static/styles/extras.css', function(req, res){
+	res.set('Content-Type', 'text/css');
+	res.sendFile(__dirname + '/static/styles/extras.css');  
 });
 
 app.get('/static/styles/print.css', function(req, res){
@@ -132,7 +142,7 @@ app.get('/static/imagens/logo.svg', function(req, res){
 });
 
 
-// ROTAS PARA AS PÁGINAS HTML
+// ROTAS PARA AS PÁGINAS DE CONTEÚDO HTML
 app.get('/static/content/home.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/home.html');  
@@ -148,6 +158,14 @@ app.get('/static/content/about.html', function(req, res){
 app.get('/static/content/preview-and-print.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/preview-and-print.html');  
+});
+app.get('/static/content/premium.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/premium.html'); 
+});
+app.get('/static/content/acentos.html', function(req, res){
+	res.set('Content-Type', 'text/html');
+	res.sendFile(__dirname + '/static/content/acentos.html'); 
 });
 app.get('/static/content/privacy.html', function(req, res){
 	res.set('Content-Type', 'text/html');

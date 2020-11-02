@@ -1,0 +1,41 @@
+<div class="jumbotron jumbotron-fluid">
+	<div class="container-fluid" id="">
+		<h2 class="">Remove acentos</h2>
+		<div class="row">		
+			<div class="col-md-5">
+				<textarea id="texto_com_acento" name="w3review1" rows="15" cols="50"></textarea>
+			</div>
+			<div class="col-md-2">
+				<button type="button" id="desacentuar" class="btn btn-primary">Desacentuar</button>
+			</div>
+			<div class="col-md-5">
+				<textarea id="texto_sem_acento" name="w3review2" rows="15" cols="50"></textarea>
+			</div>
+		</div>	
+	</div>	
+</div>	
+
+<script>
+function removeAcento(text){       
+	text = text.toLowerCase();                                                        
+	text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+	text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+	text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+	text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+	text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+	text = text.replace(new RegExp('[Ç]','gi'), 'c');
+	return text;                 
+}
+
+$("button#desacentuar").click(function(){
+	
+	var texto_com_acento = $("textarea#texto_com_acento").val();
+	console.log("desacentuando..." + texto_com_acento);
+	var texto_sem_acento = removeAcento(texto_com_acento);
+	$("textarea#texto_sem_acento").val(texto_sem_acento);
+});
+
+</script>
+
+
+

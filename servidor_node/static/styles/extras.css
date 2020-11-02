@@ -1,0 +1,15 @@
+table{
+	margin-bottom: 20px;
+}
+
+tr td a{
+	display: block;
+	background-color: #fafafa;
+	border: 3px solid #e6c1c1;
+	border-radius: 5px;
+	width: 200px;
+	height: 200px;
+	margin-bottom: 20px;
+	padding: 20px;
+	
+}

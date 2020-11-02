@@ -12,10 +12,20 @@
         
 		<!-- Meu estilo CSS -->
 		<link rel="stylesheet" href="/static/styles/estilo.css">
+		<link rel="stylesheet" href="/static/styles/extras.css">
 		<!-- CSS para impressão -->
 		<link rel="stylesheet" type="text/css" href="/static/styles/print.css" media="print" />
 		<script data-ad-client="ca-pub-5217265578005284" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		
+		<!-- -->
+		<title>CropDox - Aplicação que oferece ferramentas destinadas a auxiliar em rotinas de escritório</title>
+		<meta name="description" content="O site contém ferramentas que auxiliam nas rotinas de escritórios, secretarias, entre outras. Reúne todas as boas ferramentas para ajudar nas suas tarefas.">
+		<meta name="keywords" content="escritório, secretaria, ferramentas, planilhas, acentos, pdf, imagens, transferências, dados, processamento,escaneador,foto,copiadora,textos,smartphone,aplicativo,fotocópia">
+		<meta name="robots" content="">
+		<meta name="revisit-after" content="7 day">
+		<meta name="language" content="Portuguese">
+		<meta name="generator" content="N/A">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		
 
     </head>
@@ -46,7 +56,7 @@
 	                          <a class="nav-link " href="javascript:;" id='privacy'>Privacidade</a>
 	                        </li>
 	                        <li class="nav-item">
-	                          <a class="nav-link " href="javascript:;" id='404' style="color:gold;">Premium</a>
+	                          <a class="nav-link " href="javascript:;" id='premium' style="color:gold;">Premium</a>
 	                        </li>
 							<li class="nav-item">
 	                          <a class="nav-link " href="javascript:;" id='extras'>Extras</a>
@@ -173,9 +183,11 @@
 
 		<script>
 			$(document).ready(function() {
-				var pagina = "home";
+				var url = getURL();
+				var pagina = (url == "/")? "home": url.substr(1);
+				
 				$("#conteudo").load("/static/content/" + pagina + ".html",function() {
-					console.log( "Página home carregada!!" );
+					console.log( "Página da url carregada!!" );
 				});
 				
 				$("a.nav-link").click(function(){
@@ -183,12 +195,36 @@
 					$(this).css({color: "#ffe", border: "2px solid #ccc" });
 										
 					pagina = $(this).attr("id");
-					//alert("The nav-link was clicked: " + $(this).attr("id"));
+					
 					$("#conteudo").load("/static/content/" + pagina + ".html",function() {
 						console.log( "Load was performed." );
 					});
 				});
+				
+				$("button#desacentuar").click(function(){
+					console.log("texto_com_acento");
+					var texto_com_acento = $("textarea#texto_com_acento").text();
+					var texto_sem_acento = removeAcento(texto_com_acento);
+					$("textarea#texto_sem_acento").text(texto_sem_acento);
+				});
 			});
+			
+			function removeAcento(text){       
+				text = text.toLowerCase();                                                        
+				text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+				text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+				text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+				text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+				text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+				text = text.replace(new RegExp('[Ç]','gi'), 'c');
+				return text;                 
+			}
+			
+			function getURL() {
+				var pathname_url = window.location.pathname;
+				console.log("The URL of this page is: " + window.location.pathname);
+				return pathname_url;
+			}
 		</script>
 		
     </body>
