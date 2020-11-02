@@ -1,151 +1,49 @@
-<div class="container" id="">
-	<h3>Caixa de Ferramentas</h3>
-	<div class="row" id="">
-		<div class="col-sm-12" >
-			<table style="width:100%">
-			  <tr>
-				<td>
-					<a href="/acentos" >
-						<article>
-							<h2>Retira acentos</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Cortar PDF</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-			  </tr>
-			  <tr>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>				
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<article>
-							<h2>Adicione...</h2>
-							<p>Mozilllar ry, 2018.</p>
-							<span>Retira acentos</span>
-						</article>
-					</a>
-				</td>
-			  </tr>
-			</table>
-		</div>			
-	</div>	
-</div>	
-
+<div class="jumbotron jumbotron-fluid">
+	<div class="container-fluid" id="">
+        <h3  class="titulo_conteudo centralizado">Caixa de Ferramentas</h3>
+        <div class="row" id="">
+            <div class="col-sm-12" >
+                <table >
+                    <tr>
+                        <td>
+                            <a href="javascript:;" class="relink" id="acentos">
+                                <article>
+                                    <h2>Retira acentos</h2>
+                                    <p>Retira acentosRetira acentosRetira acentos</p>
+                                    <span>Retira acentos</span>
+                                </article>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:;" class="relink">
+                                <article>
+                                    <h2>Cortar PDF</h2>
+                                    <p>Cortar PDF DFCortar PDFCortar PDF</p>
+                                    <span>Cortar PDF</span>
+                                </article>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:;" class="relink">
+                                <article>
+                                    <h2>Preencher Planilha</h2>
+                                    <p>Preenche Planilha Preenche Planilha</p>
+                                    <span>Preencher Planilha</span>
+                                </article>
+                            </a>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </div>			
+        </div>	    
+    </div>	
+</div>
+<script>
+$("a.relink").click(function(){	
+	pagina = $(this).attr("id");
+	$("#conteudo").load("/static/content/" + pagina + ".html",function() {
+		console.log( "Load was performed." );
+	});
+});
+</script>

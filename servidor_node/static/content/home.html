@@ -1,53 +1,52 @@
-<div class="container-fluid">	
-	<div class="row" id="">	
-		<div class="col-sm-4 no-print" >
-			<header>Código QR</header>		
-			<div class="no-print" id="codigo_qr">				
-				<div id="qrcode" ></div>				
-			</div>
-			<span id="msgs" class="badge badge-success">Dispositivo conectado em tal dia, não logado ..</span>			
-			<article id="instrucoes">
-				<ol>
-					<li>Inicie o App 
-						<a target="_blank" href='https://play.google.com/store/apps/details?id=com.cropdox'>CropDox</a>
-					no seu Smartphone</li>
-					<li>No aplicativo tire uma foto</li>
-					<li>Escaneie o código QR.</li>
-				</ol>
-			</article>			
-		</div>	
-		<div class="col-sm-4">
-			<h3 class="no-print">Pré-visualização </h3>
-			<header class="no-print">Sua Imagem</header>						
-			<article class="print">
-				<p>
-					<img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=>
-				</p>
-				<div id="android-msgs" class="no-print">
-					<span class='badge badge-success'>android-msgs: </span>
-				</div>						
-			</article>
-		</div>	
-		<div class="col-sm-4 no-print" >
-			<h1> </h1>
-			<form action="javascript:;">
-				<div class="form-group">
-					<a href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>
-				</div>
-				<div class="form-group">
-					<button  class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>
-				</div>				
-				<div class="form-group">								
-					<span class="badge badge-warning">TO DO..</span>
-				</div>									
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary  botoes-largos">Disconectar</button>
-				</div>
-			</form>
-		</div>	
-	</div>	
-</div>	
-
+<div class="jumbotron jumbotron-fluid">
+    <div class="container-fluid">	
+        <div class="row" id="">	
+            <div class="col-sm-4 no-print" >
+                <header>Código QR</header>		
+                <div class="no-print" id="codigo_qr">				
+                    <div id="qrcode" ></div>				
+                </div>
+                <span id="msgs" class="badge badge-success">...</span>			
+                <article id="instrucoes">
+                    <ol>
+                        <li>Inicie o App 
+                            <a target="_blank" href='https://play.google.com/store/apps/details?id=com.cropdox'>CropDox</a>
+                        no seu Smartphone</li>
+                        <li>No aplicativo tire uma foto</li>
+                        <li>Escaneie o código QR.</li>
+                    </ol>
+                </article>			
+            </div>	
+            <div class="col-sm-4">
+                <h3 class="no-print">Pré-visualização </h3>
+                <header class="no-print">Sua Imagem</header>						
+                <article class="print">
+                    <p>
+                        <img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=>
+                    </p>
+                    <div id="android-msgs" class="no-print">
+                        <span class='badge badge-success'>android-msgs: </span>
+                    </div>
+                    <form action="javascript:;" class="no-print">
+                        <div class="form-group">
+                            <a href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>
+                        </div>
+                        <div class="form-group">
+                            <button  class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>
+                        </div>				
+                        <div class="form-group">								
+                            <span class="badge badge-warning"></span>
+                        </div>													
+                    </form>				
+                </article>
+            </div>	
+            <div class="col-sm-4 no-print" >
+                <h1> </h1>
+                
+            </div>	
+        </div>	
+    </div>	
+</div>
 	
 
 <script>
@@ -66,7 +65,7 @@
 	});						
 			
 	socket.on('connect', function(){
-		$("#msgs").text("Connectado com o id: " + socket.id);
+		console.log("Connectado com o id: " + socket.id);
 		meu_id = socket.id;
 		$("#qrcode").html("");
 		new QRCode(document.getElementById("qrcode"), meu_id);

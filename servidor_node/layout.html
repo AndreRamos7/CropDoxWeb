@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
-        <title>CropDox - beta</title>
+        <meta charset="UTF-8">        
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -18,7 +17,7 @@
 		<script data-ad-client="ca-pub-5217265578005284" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		
 		<!-- -->
-		<title>CropDox - Aplicação que oferece ferramentas destinadas a auxiliar em rotinas de escritório</title>
+		<title>CropDox - Aplicação que oferece ferramentas Web para escritórios</title>
 		<meta name="description" content="O site contém ferramentas que auxiliam nas rotinas de escritórios, secretarias, entre outras. Reúne todas as boas ferramentas para ajudar nas suas tarefas.">
 		<meta name="keywords" content="escritório, secretaria, ferramentas, planilhas, acentos, pdf, imagens, transferências, dados, processamento,escaneador,foto,copiadora,textos,smartphone,aplicativo,fotocópia">
 		<meta name="robots" content="">
@@ -200,25 +199,7 @@
 						console.log( "Load was performed." );
 					});
 				});
-				
-				$("button#desacentuar").click(function(){
-					console.log("texto_com_acento");
-					var texto_com_acento = $("textarea#texto_com_acento").text();
-					var texto_sem_acento = removeAcento(texto_com_acento);
-					$("textarea#texto_sem_acento").text(texto_sem_acento);
-				});
 			});
-			
-			function removeAcento(text){       
-				text = text.toLowerCase();                                                        
-				text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
-				text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
-				text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
-				text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
-				text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
-				text = text.replace(new RegExp('[Ç]','gi'), 'c');
-				return text;                 
-			}
 			
 			function getURL() {
 				var pathname_url = window.location.pathname;

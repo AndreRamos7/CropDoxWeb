@@ -46,6 +46,10 @@ body{
 	min-height: 100vh;
 	/*height: 600px;*/
 }
+.titulo_conteudo{
+    height: 10px;
+    margin-bottom: 50px;
+}
 #instrucoes{	
 	font-size: 23px;
     font-weight: 400;			

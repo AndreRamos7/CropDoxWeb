@@ -2,14 +2,20 @@ table{
 	margin-bottom: 20px;
 }
 
+tr td a:hover{
+	text-decoration:none; 
+}
+tr td {
+	
+}
 tr td a{
 	display: block;
 	background-color: #fafafa;
-	border: 3px solid #e6c1c1;
+	border: 3px solid #1d5297;
 	border-radius: 5px;
 	width: 200px;
 	height: 200px;
 	margin-bottom: 20px;
+	margin-right: 10px;
 	padding: 20px;
-	
 }
