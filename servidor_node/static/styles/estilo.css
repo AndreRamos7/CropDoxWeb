@@ -40,7 +40,9 @@ body{
 	padding-top: 20px;
 	
 }
-
+.jumbotron{
+	background-color: #fff;
+}
 #container{
 	position: relative;
 	min-height: 100vh;

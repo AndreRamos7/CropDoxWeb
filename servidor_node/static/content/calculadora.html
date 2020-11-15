@@ -1,0 +1,321 @@
+
+<style>
+    #content{
+        display: block;
+        background-color: cadetblue;
+        border: 1px solid black;
+        padding: 20px;
+    }
+    #abas{
+        background-color: rgb(4, 255, 33);
+    }
+    .abas_itens{
+        display: block;
+        background-color: rgb(19, 102, 30);
+        border-top: 1px solid black;       
+        border-left: 1px solid black;       
+        border-right: 1px solid black;       
+        border-radius: 5px 5px 0 0;
+        padding: 5px;
+        width: auto;
+        height: 35px;
+        text-decoration: none;
+        float: left;
+        color: black;
+        font-size: 20px;
+    }
+    #aba1{
+        background-color: #65b4b7;
+    }
+    #conteudo_folha1{
+        background-color: #65b4b7;
+    }
+    #aba2{ 
+        background-color: #a6e4d6;
+        margin-left: 50px;
+    }
+    #conteudo_folha2{
+        background-color: #a6e4d6;
+        
+        height: 400px;
+    }
+
+    #abas{
+        display: flex;
+        height: auto; 
+        padding: 5px;            
+    }
+    #folhas{
+        height: auto;         
+    }
+    .calcs{
+        display: block;
+        border-bottom: 1px solid black;
+        float: none;
+    }
+    .conteudos{
+        padding: 15px;
+    }
+
+    label{
+        font-size: xx-large;
+    }
+    input[type="text"]{
+        display: block;
+        border: 1px solid black;
+        height: 35px;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: xx-large;
+    }
+    input#data_atual{
+        background-color: chocolate;
+    }
+    .linhas{
+        display: flex;
+        margin: 10px;
+    }
+    .colunas{
+        display: block;
+        float: left;
+        margin: 10px;
+    }
+        
+    .active, .btn:hover {
+        background-color: #666;
+        color: white;
+    }
+
+</style>
+
+<div class="jumbotron jumbotron-fluid">      
+    <div id="abas" class="calcs rows">
+        <a href="javascript:;" id="aba1" class="abas_itens  btn active">CH proporcional - professor</a>
+        <a href="javascript:;"  id="aba2" class="abas_itens  btn ">Calculadora de dias</a>            
+    </div>
+    <div id="folhas" class="rows calcs">
+        <div id="conteudo_folha1" class="conteudos">        
+            <form action="javascript:;" class="rows">
+                <label for="data_de_lotacao" >Data de Lotação:</label><br>
+                <input class="campos_txt"  type="text" id="data_de_lotacao" name="fname" value="" autofocus autocomplete="off"><br>
+                
+                <label for="ch_anterior">CH Anterior:</label><br>
+                <input class="campos_txt" type="text" id="ch_anterior" name="ch_anterior" value="" autocomplete="off"><br><br>
+                
+                <label for="nova_ch" >Nova CH:</label><br>
+                <input class="campos_txt" type="text" id="nova_ch" name="nova_ch" value="" autocomplete="off"><br>
+                
+                <label for="ch_prop">CH Proporcional:</label><br>
+                <input class="campos_txt" type="text" id="ch_prop" name="ch_prop" value="" readonly autocomplete="off"><br><br>
+                
+                <!-- <input type="submit" value="Submit"> -->
+            </form> 
+        </div>
+        <div id="conteudo_folha2"  class="conteudos">        
+            <form action="javascript:;" id="" class="linhas rows">   
+                <div class="col-sm-4">                  
+                    <label for="data_atual" >Data atual:</label><br>
+                    <input class="campos_txt"  type="text" id="data_atual" name="data_atual" value=""  autocomplete="off" readonly><br>
+                </div > 
+                <div class="col-sm-4">                   
+                    <label for="num_dias1" >Número de dias:</label><br>
+                    <input class="campos_txt"  type="text" id="num_dias1" name="num_dias1" value="" autofocus autocomplete="off"><br>
+                </div > 
+                <div class="col-sm-4">                   
+                    <label for="data_prevista1" >Data Prevista:</label><br>
+                    <input class="campos_txt"  type="text" id="data_prevista1" name="data_prevista1" value="" readonly autocomplete="off"><br>                    
+                </div >                             
+            </form> 
+            
+            <form action="javascript:;" id="" class="linhas rows">                  
+                <div class="col-sm-4">  
+                    <label for="data_inicial1">Data Inicial:</label><br>
+                    <input class="campos_txt" type="text" id="data_inicial1" name="ch_anterior" value="" autocomplete="off"><br>
+                </div > 	
+                <div class="col-sm-4">     
+                    <label for="num_dias2">Número de dias:</label><br>
+                    <input class="campos_txt" type="text" id="num_dias2" name="num_dias2" value="" autocomplete="off"><br>
+                </div > 
+                <div class="col-sm-4"> 
+                    <label for="data_prevista2">Data Prevista:</label><br>
+                    <input class="campos_txt" type="text" id="data_prevista2" name="data_prevista2" value="" autocomplete="off"><br>
+                </div > 	                        
+            </form> 
+            
+            <form action="javascript:;" id="" class="linhas rows">  
+                <div class="col-sm-4">  
+                    <label for="data_inicial2">Data Inicial:</label><br>
+                    <input class="campos_txt" type="text" id="data_inicial2" name="ch_anterior" value="" autocomplete="off"><br><br>
+                </div>  
+                <div class="col-sm-4"> 
+                    <label for="data_final">Data Final:</label><br>
+                    <input class="campos_txt" type="text" id="data_final" name="data_final" value="" autocomplete="off"><br><br> 
+                </div >
+                <div class="col-sm-4"> 
+                    <label for="num_dias3">Número de dias:</label><br>
+                    <input class="campos_txt" type="text" id="num_dias3" name="num_dias3" value="" autocomplete="off"><br><br>        
+                </div > 
+                
+            </form> 
+        </div>
+    </div>
+</div>
+<!-- ##################################################################################################### -->
+<!-- #########################################   SCRIPTS  ################################################ -->
+<!-- ##################################################################################################### -->
+
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("content");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    //var campos = document.getElementsByClassName("campos_txt");
+    var elemento_data_de_lotacao = document.getElementById("data_de_lotacao");
+    var elemento_ch_anterior = document.getElementById("ch_anterior");
+    var elemento_ch_nova = document.getElementById("nova_ch");
+    var elemento_ch_prop = document.getElementById("ch_prop");
+
+    elemento_data_de_lotacao.addEventListener("keyup", calcular);
+    elemento_ch_anterior.addEventListener("keyup", calcular);
+    elemento_ch_nova.addEventListener("keyup", calcular);
+    
+    //elemento_data_de_lotacao.focus();
+    
+    
+    function calcular() {
+        var array_data_ltc = elemento_data_de_lotacao.value.split("/");            
+            
+        var dia = array_data_ltc[0];
+        var mes = array_data_ltc[1];
+        var ano = array_data_ltc[2];
+
+        var data_ins = new Date( [mes, "/", dia, "/", ano].join('') );
+        var hoje = new Date();
+        var diferenca = Math.abs(data_ins.getTime() - hoje.getTime());
+        var dias = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
+
+        var dias_restantes = 30 - dia + 1;     
+        var difer_ch = Math.abs(elemento_ch_nova.value - elemento_ch_anterior.value);       
+        var novo_valor = parseFloat((difer_ch/30)*dias_restantes);
+        var ch_prop = novo_valor + parseInt(elemento_ch_anterior.value);
+        elemento_ch_prop.value = (!isNaN(ch_prop))?ch_prop:"";
+        
+
+        console.log(data_de_lotacao.value);
+    }
+
+</script>
+
+<script type="text/javascript">        
+    document.getElementById("conteudo_folha1").style.display = "none";
+    document.getElementById("conteudo_folha2").style.display = "block";
+
+    document.getElementById("aba1").addEventListener("click", function(){
+        
+        document.getElementById("conteudo_folha2").style.display = "none";
+        document.getElementById("conteudo_folha1").style.display = "block";
+    });
+    document.getElementById("aba2").addEventListener("click", function(){
+        document.getElementById("conteudo_folha1").style.display = "none";
+        document.getElementById("conteudo_folha2").style.display = "block";
+    });
+</script>
+
+<script type="text/javascript">
+
+    elemento_data_atual = document.getElementById("data_atual");
+    elemento_data_inicial1 = document.getElementById("data_inicial1");
+    elemento_data_inicial2 = document.getElementById("data_inicial2");
+
+    elemento_num_dias1 = document.getElementById("num_dias1");
+    elemento_num_dias2 = document.getElementById("num_dias2");
+    elemento_data_final = document.getElementById("data_final");
+
+    elemento_data_prevista1 = document.getElementById("data_prevista1");
+    elemento_data_prevista2 = document.getElementById("data_prevista2");
+    elemento_num_dias3 = document.getElementById("num_dias3");
+    calcular2();
+    
+    // ADICIONA EVENTOS AOS CAMPOS DE TEXTO
+    //elemento_data_atual.addEventListener("keyup", calcular2);
+    elemento_data_inicial1.addEventListener("keyup", calcular3);
+    elemento_data_inicial2.addEventListener("keyup", calcular4); 
+
+    elemento_num_dias1.addEventListener("keyup", calcular2); 
+    elemento_num_dias2.addEventListener("keyup", calcular3); 
+    elemento_data_final.addEventListener("keyup", calcular4); 
+
+    //elemento_data_prevista1.addEventListener("keyup", calcular2); 
+    elemento_data_prevista2.addEventListener("keyup", calcular3); 
+    elemento_num_dias3.addEventListener("keyup", calcular4);
+    
+    
+    function calcular2() {
+        // pega a data de hoje e mostra no campo de texto
+        var data_atual = new Date();
+        var dia = data_atual.getDate();
+        var mes = data_atual.getMonth() + 1;
+        var ano = data_atual.getFullYear();
+        var agora = new Date([mes-1, "/" , dia, "/" , ano].join(''));            
+        elemento_data_atual.value = [dia, "/" , mes, "/" , ano].join('');
+        
+        var num_dias1 = parseInt(elemento_num_dias1.value);
+        data_atual.setDate(data_atual.getDate() + num_dias1 - 1);
+        dia = (!isNaN(data_atual.getDate()))? data_atual.getDate(): "";
+        mes = (!isNaN(data_atual.getMonth() + 1))? data_atual.getMonth() + 1: "";
+        ano = (!isNaN(data_atual.getFullYear()))? data_atual.getFullYear(): "";
+
+        var data_prevista1 = [dia, "/", mes, "/", ano].join('');
+        elemento_data_prevista1.value = data_prevista1;
+        
+    }
+
+    function calcular3() {
+        var array_data_inicial1 = elemento_data_inicial1.value.split("/");   
+        var dia = array_data_inicial1[0];
+        var mes = array_data_inicial1[1];
+        var ano = array_data_inicial1[2];
+                    
+        var num_dias2 = parseInt(elemento_num_dias2.value);
+        var data_ins = new Date( [mes, "/", dia, "/", ano].join('') );            
+        data_ins.setDate(data_ins.getDate() + num_dias2 - 1);  
+        dia = (!isNaN(data_ins.getDate()))? data_ins.getDate(): "";
+        mes = (!isNaN(data_ins.getMonth() + 1))? data_ins.getMonth() + 1: "";
+        ano = (!isNaN(data_ins.getFullYear()))? data_ins.getFullYear(): "";
+        var data_prevista2 = [dia, "/", mes, "/", ano].join('');
+        elemento_data_prevista2.value = data_prevista2;
+        
+    }
+
+    function calcular4() {
+        var array_data_inicial2 = elemento_data_inicial2.value.split("/");   
+        var dia_ini = array_data_inicial2[0];
+        var mes_ini = array_data_inicial2[1];
+        var ano_ini = array_data_inicial2[2];
+
+        var array_data_final = elemento_data_final.value.split("/");   
+        var dia_fim = array_data_final[0];
+        var mes_fim = array_data_final[1];
+        var ano_fim = array_data_final[2];
+        
+        var data_ini = new Date( [mes_ini, "/", dia_ini, "/", ano_ini].join('') );            
+        var data_fim = new Date( [mes_fim, "/", dia_fim, "/", ano_fim].join('') );            
+
+        var diferenca = Math.abs(data_fim.getTime() - data_ini.getTime());
+        var dias = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
+        elemento_num_dias3.value = !isNaN(dias)? dias: "--";
+
+    }
+
+</script>
+
