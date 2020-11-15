@@ -68,6 +68,9 @@ body{
     border-radius: 10px;
     padding: 5px;
 }
+.relink{
+    margin-top: 10px;
+}
 
 #footer{
 	background-color: #1d5297;
