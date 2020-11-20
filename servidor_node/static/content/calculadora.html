@@ -7,7 +7,12 @@
         padding: 20px;
     }
     #abas{
-        background-color: rgb(4, 255, 33);
+        background-color: #ffc107;
+        display: flex;
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-bottom: 0px;
     }
     .abas_itens{
         display: block;
@@ -35,22 +40,17 @@
         margin-left: 50px;
     }
     #conteudo_folha2{
-        background-color: #a6e4d6;
-        
+        background-color: #a6e4d6;        
         height: 400px;
     }
 
-    #abas{
-        display: flex;
-        height: auto; 
-        padding: 5px;            
-    }
+    
     #folhas{
         height: auto;         
     }
     .calcs{
         display: block;
-        border-bottom: 1px solid black;
+        /*border-bottom: 1px solid black;*/
         float: none;
     }
     .conteudos{
@@ -82,20 +82,26 @@
         margin: 10px;
     }
         
-    .active, .btn:hover {
+    .active, .botao:hover {
         background-color: #666;
+        text-decoration: none;
         color: white;
+        border-top: 2px solid black;       
+        border-left: 2px solid black;       
+        border-right: 2px solid black; 
+        margin-top: 10px;
+        margin-bottom: 0px;
     }
 
 </style>
 
-<div class="jumbotron jumbotron-fluid">      
+<div id="calculadora" class="container-fluid">      
     <div id="abas" class="calcs rows">
-        <a href="javascript:;" id="aba1" class="abas_itens  btn active">CH proporcional - professor</a>
-        <a href="javascript:;"  id="aba2" class="abas_itens  btn ">Calculadora de dias</a>            
+        <a href="javascript:;" id="aba1" class="abas_itens botao ">CH proporcional</a>
+        <a href="javascript:;"  id="aba2" class="abas_itens botao active">Calculadora de dias</a>            
     </div>
     <div id="folhas" class="rows calcs">
-        <div id="conteudo_folha1" class="conteudos">        
+        <div id="conteudo_folha1" class="conteudos container-fluid">        
             <form action="javascript:;" class="rows">
                 <label for="data_de_lotacao" >Data de Lotação:</label><br>
                 <input class="campos_txt"  type="text" id="data_de_lotacao" name="fname" value="" autofocus autocomplete="off"><br>
@@ -112,7 +118,7 @@
                 <!-- <input type="submit" value="Submit"> -->
             </form> 
         </div>
-        <div id="conteudo_folha2"  class="conteudos">        
+        <div id="conteudo_folha2"  class="conteudos container-fluid">        
             <form action="javascript:;" id="" class="linhas rows">   
                 <div class="col-sm-4">                  
                     <label for="data_atual" >Data atual:</label><br>
@@ -167,8 +173,8 @@
 
 <script>
     // Add active class to the current button (highlight it)
-    var header = document.getElementById("content");
-    var btns = header.getElementsByClassName("btn");
+    var header = document.getElementById("calculadora");
+    var btns = header.getElementsByClassName("botao");
     for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function() {
         var current = document.getElementsByClassName("active");

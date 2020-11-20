@@ -140,6 +140,10 @@ app.get('/static/styles/print.css', function(req, res){
 app.get('/static/imagens/logo.svg', function(req, res){
 	res.sendFile(__dirname + '/static/imagens/logo.svg');  
 });
+app.get('/static/imagens/load.gif', function(req, res){
+	res.sendFile(__dirname + '/static/imagens/load.gif');  
+});
+
 
 
 // ROTAS PARA AS PÁGINAS DE CONTEÚDO HTML

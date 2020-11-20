@@ -7,7 +7,7 @@
                 </div>
                 <span id="msgs" class="badge badge-success">...</span>			
                 <article id="instrucoes">
-                    <h3>Instruções de uso</h3>
+                    <h3>Instruções</h3>
                     <ol>
                         <li>Inicie o App 
                             <a target="_blank" href='https://play.google.com/store/apps/details?id=com.cropdox'>CropDox</a>
@@ -18,11 +18,11 @@
                 </article>			
             </div>	
             <div class="col-sm-4">
-                <h3 class="no-print">Pré-visualização </h3>
-                <header class="no-print">Sua Imagem</header>						
+                <h3 class="no-print"></h3>
+                <header class="no-print">Leia as instruções. Sua Imagem será exibida aqui. </header>						
                 <article class="print">
                     <p>
-                        <img id="imagem_server" src="/static/imagens/doc.jpg" width=200 height=>
+                        <img id="imagem_server" src="/static/imagens/load.gif" width=200 height=>
                     </p>
                     <div id="android-msgs" class="no-print">
                         <span class='badge badge-success'>android-msgs: </span>
@@ -74,6 +74,7 @@
 </div>
 
 <script>
+/*Modifica o conteúdo da página*/
 $("a.relink").click(function(){	
     pagina = $(this).attr("id");
     $("#conteudo").load("/static/content/" + pagina + ".html",function() {
@@ -93,8 +94,9 @@ $("a.relink").click(function(){
 	});
 
 	socket.on('mensagem android', function(data){
+        $("img#imagem_server").attr("src", "/static/imagens/load.gif");
 		$("#android-msgs").html("<span class='badge badge-success'>Mensagem Android foi: data.url = " + data.url + "</span><br>");
-		$("img#imagem_server").attr("src", data.url);
+        $("img#imagem_server").attr("src", data.url);        
 		console.log('escutei uma mensagem: ');					
 	});						
 			
