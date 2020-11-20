@@ -29,6 +29,9 @@
                     </div>
                     <form action="javascript:;" class="no-print">
                         <div class="form-group">
+                            <a id="delete" href="javascript:;" class="btn btn-danger ">Deletar</a>
+                        </div>
+                        <div class="form-group">
                             <a href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>
                         </div>
                         <div class="form-group">
@@ -81,6 +84,14 @@ $("a.relink").click(function(){
         console.log( "Load was performed." );
     });
 });
+
+/* Chama função de deletar o arquivo
+$("a#delete").click(function(){	
+    $.get("/deletar", function(data, status){
+        $(this).text("Deletado!!");
+    });
+});
+*/
 </script>
         
 
@@ -109,5 +120,10 @@ $("a.relink").click(function(){
 	var meu_id = null;
 
 	socket.emit("mensagem", "mensagem do navegador");
+
+
+    $("a#delete").click(function(){	
+        socket.emit("deletar", "arquivo");
+    });
 
 </script>

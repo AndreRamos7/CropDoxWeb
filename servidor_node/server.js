@@ -77,6 +77,15 @@ app.post('/receber-arquivo', upload.single('file'), function(req, res){
 	console.log('<h2>Upload realizado com sucesso</h2>');
 });
 
+app.get('/deletar', function(req, res){
+    fs.unlink(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg', function (err) {            
+        if (err) {                                                 
+            console.error(err);                                    
+        }                                                          
+       console.log('File has been Deleted');                           
+    });  
+ })
+
 // cria uma rota para fornecer o arquivo qrcode.min.js
 app.get('/qrcode.min.js', function(req, res){	
 	res.set('Content-Type', 'text/javascript');
@@ -205,6 +214,18 @@ io.on("connection",function(client){
     client.on("disconnect",function(){
         //app.deleteSession(client.id);
         console.log("cliente disconectado: ",client.id);
+    });
+    
+    client.on("deletar",function(data){
+        if(data == "arquivo"){
+            fs.unlink(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg', function (err) {            
+                if (err) {                                                 
+                    console.error(err);                                    
+                } else{
+                    console.log('File has been Deleted');                           
+                }
+            });  
+        }
     });
 	
 	client.on("mensagem",function(data){
