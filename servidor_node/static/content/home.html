@@ -29,16 +29,10 @@
                     </div>
                     <form action="javascript:;" class="no-print">
                         <div class="form-group">
-                            <a id="delete" href="javascript:;" class="btn btn-danger ">Deletar</a>
-                        </div>
-                        <div class="form-group">
-                            <a href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>
-                        </div>
-                        <div class="form-group">
-                            <button  class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>
-                        </div>				
-                        <div class="form-group">								
-                            <span class="badge badge-warning"></span>
+                            <a id="delete" href="javascript:;" class="btn btn-danger ">Deletar</a>                        
+                            <a id="download" href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>                        
+                            <button id="imprimir" class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>                        								
+                            <br><span class="badge badge-warning">...</span>
                         </div>													
                     </form>				
                 </article>
@@ -77,6 +71,10 @@
 </div>
 
 <script>
+$("a#delete").hide();
+$("a#download").hide();
+$("button#imprimir").hide();
+
 /*Modifica o conteúdo da página*/
 $("a.relink").click(function(){	
     pagina = $(this).attr("id");
@@ -84,14 +82,6 @@ $("a.relink").click(function(){
         console.log( "Load was performed." );
     });
 });
-
-/* Chama função de deletar o arquivo
-$("a#delete").click(function(){	
-    $.get("/deletar", function(data, status){
-        $(this).text("Deletado!!");
-    });
-});
-*/
 </script>
         
 
@@ -107,7 +97,10 @@ $("a#delete").click(function(){
 	socket.on('mensagem android', function(data){
         $("img#imagem_server").attr("src", "/static/imagens/load.gif");
 		$("#android-msgs").html("<span class='badge badge-success'>Mensagem Android foi: data.url = " + data.url + "</span><br>");
-        $("img#imagem_server").attr("src", data.url);        
+        $("img#imagem_server").attr("src", data.url);   
+        $("a#delete").show();
+        $("a#download").show();
+        $("button#imprimir").show();     
 		console.log('escutei uma mensagem: ');					
 	});						
 			
