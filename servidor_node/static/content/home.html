@@ -82,6 +82,14 @@ $("a.relink").click(function(){
         console.log( "Load was performed." );
     });
 });
+
+/*Modifica o conteúdo da página*/
+$("a#delete").click(function(){	
+    pagina = $(this).attr("id");
+    $("#conteudo").load("/static/content/" + pagina + ".html",function() {
+        console.log( "Load was performed." );
+    });
+});
 </script>
         
 
@@ -98,9 +106,11 @@ $("a.relink").click(function(){
         $("img#imagem_server").attr("src", "/static/imagens/load.gif");
 		$("#android-msgs").html("<span class='badge badge-success'>Mensagem Android foi: data.url = " + data.url + "</span><br>");
         $("img#imagem_server").attr("src", data.url);   
+        
         $("a#delete").show();
         $("a#download").show();
         $("button#imprimir").show();     
+        
 		console.log('escutei uma mensagem: ');					
 	});						
 			

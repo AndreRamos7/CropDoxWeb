@@ -24,7 +24,7 @@
 		<meta name="revisit-after" content="7 day">
 		<meta name="language" content="Portuguese">
 		<meta name="generator" content="N/A">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		
 
     </head>
@@ -93,30 +93,8 @@
         <!-- Rodapé -->
         <div class="container-fluid no-print">
             <div class="row" id="footer">
-                <div class="col-sm-4 " >
-					<!-- Links -->
-					<ul class="navbar-nav">
-						<li class="nav-item" > 
-							<a class="nav-link " href="#" id='home'>Home</a>
-						</li>
-						<li class="nav-item" > 
-							<a class="nav-link " href="#" id='about'>Sobre</a>
-						</li>	                        
-						<li class="nav-item">
-							<a class="nav-link " href="#" id='terms'>Termos de uso</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link " href="#" id='privacy'>Privacidade</a>
-						</li>						
-						<li class="nav-item">
-							<a class="nav-link " href="#" id='extras'>Extras</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link " href="#" id='manutencao'>Manutenção</a>
-						</li>
-					</ul>				
-				</div>
-                <div class="col-sm-4" >
+                <div class="col-sm-2" >	</div>                
+                <div class="col-sm-3" >
 					<!-- Links -->
 					<ul class="navbar-nav">
 						<li class="nav-item" > 
@@ -136,7 +114,7 @@
 						</li>
 					</ul>	
 				</div>
-                <div class="col-sm-4" >		
+                <div class="col-sm-5" >		
 					<p>
 						<a href='https://play.google.com/store/apps/details?id=com.cropdox' target="_blank"><img alt='Disponível no Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png' width="200" height="75"/></a>
 					</p>
@@ -147,9 +125,10 @@
 						CropDox ® 2020 <br> Tecnologias Web para escritório.
 					</p>
 					<p>
-						Desenvolvido por <a href="https://www.linktr.ee/andrejaramos/">MSc. André de J. A. Ramos</a>
+						Desenvolvido por <a href="https://www.linktr.ee/andrejaramos/">Genial Softwares</a>
 					</p>
-				</div>
+                </div>
+                <div class="col-sm-2" >	</div>
             </div>
         </div>
 		
@@ -175,7 +154,8 @@
 				
 				$("a.nav-link").click(function(){
 					$("a.nav-link").css({border: "0" });
-					$(this).css({color: "#ffe", border: "2px solid #ccc" });
+					$("a.nav-link").css({fontSize: "medium"});
+					$(this).css({fontSize: "large", color: "#ffe", borderBottom: "2px solid #ccc" });
 										
 					pagina = $(this).attr("id");
 					

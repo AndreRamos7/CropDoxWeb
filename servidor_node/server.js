@@ -77,7 +77,8 @@ app.post('/receber-arquivo', upload.single('file'), function(req, res){
 	console.log('<h2>Upload realizado com sucesso</h2>');
 });
 
-app.get('/deletar', function(req, res){
+app.delete('/arquivo/:id/deletar', function(req, res){
+    const { id } = req.params;
     fs.unlink(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg', function (err) {            
         if (err) {                                                 
             console.error(err);                                    
