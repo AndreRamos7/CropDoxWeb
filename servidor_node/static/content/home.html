@@ -1,11 +1,8 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container-fluid">	
-        <div class="row" id="">	
-            <div class="col-sm-4 no-print" >                
-                <div class="no-print" id="codigo_qr">				
-                    <div id="qrcode" ></div>				
-                </div>
-                <span id="msgs" class="badge badge-success">...</span>			
+        <div class="row" id="">
+            <div class="col-sm-1 no-print" ></div>
+            <div class="col-sm-4 no-print" >
                 <article id="instrucoes">
                     <h3>Instruções</h3>
                     <ol>
@@ -15,11 +12,17 @@
                         <li>No aplicativo tire uma foto</li>
                         <li>Escaneie o código QR.</li>
                     </ol>
-                </article>			
+                </article>	
+            </div>
+            <div class="col-sm-3 no-print" >                
+                <div class="no-print" id="codigo_qr">				
+                    <div id="qrcode" ></div>				
+                </div>
+                <span id="msgs" class="badge badge-success">...</span>	
             </div>	
             <div class="col-sm-4">
                 <h3 class="no-print"></h3>
-                <header class="no-print">Leia as instruções. Sua Imagem será exibida aqui. </header>						
+                <!--<header class="no-print">Leia as instruções. Sua Imagem será exibida aqui. </header>-->						
                 <article class="print">
                     <p>
                         <img id="imagem_server" src="/static/imagens/load.gif" width=200 height=>
@@ -37,35 +40,7 @@
                     </form>				
                 </article>
             </div>	
-            <div class="col-sm-4 no-print" >
-                <div class="row" id="">
-                    <div class="col-sm-12" >                       
-                        <a href="javascript:;" class="btn btn-warning relink card" id="acentos">
-                            <article>
-                                <h2>Retira acentos</h2>
-                                <p>Retira acentuações gráficas das palavras...</p>
-                                <span>Retira acentos</span>
-                            </article>
-                        </a>                    
-                        <a href="javascript:;" class="btn btn-warning relink card" id="calculadora">
-                            <article>
-                                <h2>Calculadora de datas</h2>
-                                <p>Calcula datas e dias</p>
-                                <span>Calculadora</span>
-                            </article>
-                        </a>                    
-                        <a href="javascript:;" class="btn btn-warning relink card">
-                            <article>
-                                <h2>Cortar PDF</h2>
-                                <p>Corta PDF </p>
-                                <span>Em breve..</span>
-                            </article>
-                        </a>
-                        <a href="#">Mais</a>
-                    </div>			
-                </div>	    
-                
-            </div>	
+            <div class="col-sm-1 no-print" ></div>
         </div>	
     </div>	
 </div>

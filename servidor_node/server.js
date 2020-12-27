@@ -177,14 +177,7 @@ app.get('/static/content/premium.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/premium.html'); 
 });
-app.get('/static/content/calculadora.html', function(req, res){
-	res.set('Content-Type', 'text/html');
-	res.sendFile(__dirname + '/static/content/calculadora.html'); 
-});
-app.get('/static/content/acentos.html', function(req, res){
-	res.set('Content-Type', 'text/html');
-	res.sendFile(__dirname + '/static/content/acentos.html'); 
-});
+
 app.get('/static/content/privacy.html', function(req, res){
 	res.set('Content-Type', 'text/html');
 	res.sendFile(__dirname + '/static/content/privacy.html'); 
