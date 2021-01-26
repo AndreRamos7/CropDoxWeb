@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-3 no-print" >                
                 <div class="no-print" id="codigo_qr">				
-                    <div id="qrcode" ></div>				
+                    <div id="qrcode" title=""></div>				
                 </div>
                 <span id="msgs" class="badge badge-success">...</span>	
             </div>	
@@ -28,7 +28,7 @@
                         <img id="imagem_server" src="/static/imagens/load.gif" width=200 height=>
                     </p>
                     <div id="android-msgs" class="no-print">
-                        <span class='badge badge-success'>android-msgs: </span>
+                        <span class='badge badge-success'>Sua imagem será exibida aqui. Aguardando sua ação... </span>
                     </div>
                     <form action="javascript:;" class="no-print">
                         <div class="form-group">
@@ -92,8 +92,17 @@ $("a#delete").click(function(){
 	socket.on('connect', function(){
 		console.log("Connectado com o id: " + socket.id);
 		meu_id = socket.id;
-		$("#qrcode").html("");
-		new QRCode(document.getElementById("qrcode"), meu_id);
+        $("#qrcode").html("");
+        
+		var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 228,
+            height: 228,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        qrcode.makeCode(meu_id);
+        $("#qrcode").attr("title", "");        
 	});
 	var meu_id = null;
 

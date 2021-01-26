@@ -37,8 +37,7 @@ body{
 
 #donativos{
 	padding-left: 50px;
-	padding-top: 20px;
-	
+	padding-top: 20px;	
 }
 .jumbotron{
 	background-color: #fff;
@@ -52,9 +51,19 @@ body{
     height: 10px;
     margin-bottom: 50px;
 }
+p{
+	text-align: justify;
+}
+#instrucoes h3{
+	text-align: center;
+}
 #instrucoes{	
 	font-size: 23px;
-    font-weight: 400;			
+	font-weight: 400;	
+	background-color: #d6f1f3;
+	border: 3px dotted black;
+	border-radius: 5px;	
+	padding: 5px;	
 }
 .centralizado{
 	text-align: center;
@@ -66,7 +75,8 @@ body{
 #qrcode{
 	border: 3px solid #fae3c8;
     border-radius: 10px;
-    padding: 5px;
+	padding: 5px;
+	cursor: none;
 }
 .relink{
     margin-top: 10px;

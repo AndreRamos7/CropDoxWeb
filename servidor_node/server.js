@@ -20,6 +20,8 @@ const credentials = {
 };
 
 
+
+
 const http = require('http');//.createServer(app);
 const https = require('https');
 const express = require('express');
@@ -28,6 +30,7 @@ const app = express();
 // =====================  =================================
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
+
 //trocar httpsServer ou httpServer sem s ou com s
 const io0 = require('socket.io')(httpServer);
 const io = require('socket.io')(httpsServer);
@@ -55,10 +58,18 @@ const upload = multer({ storage: storage });
 
 // ============================ ROTAS =============================================
 app.use((req, res, next) => { //Cria um middleware onde todas as requests passam por ele
-    if (req.secure) //Se a requisição feita é segura (é HTTPS)
-        next(); //Não precisa redirecionar, passa para os próximos middlewares que servirão com o conteúdo desejado
-    else //Se a requisição não for segura (é HTTP)
-        res.redirect('https://' + req.headers.host + req.url);
+	console.log('req.headers.host ', req.headers.host);
+	if (req.headers.host == "cropdox.com.br") {			
+		res.redirect('https://cropdox.com' + req.url);	
+
+	}else if (req.headers.host == "cropdox.com") {
+		if (req.secure) {//Se a requisição feita é segura (é HTTPS)		
+			next(); //Não precisa redirecionar, passa para os próximos middlewares que servirão com o conteúdo desejado
+		}else{ //Se a requisição não for segura (é HTTP)
+			res.redirect('https://' + req.headers.host + req.url);
+		}
+	}
+	
 });
 // cria uma rota para fornecer o arquivo index.html
 app.get('/upload.html', function(req, res){	
@@ -239,11 +250,11 @@ io.on("connection",function(client){
 
 });
 
-
 httpServer.listen(80, () => {
    console.log('Servidor rodando em: http://cropdox.com:80');
 });
 httpsServer.listen(443, () => {
    console.log('Servidor rodando em: https://cropdox.com:443');
 });
+
 
