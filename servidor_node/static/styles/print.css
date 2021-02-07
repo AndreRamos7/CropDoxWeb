@@ -9,28 +9,31 @@
 	}
 
 	body {
-		margin:0;
-		padding:0;
-		line-height: 1.4em;
+        background:transparent !important;
+		margin:0 !important;
+		padding:0 !important;
+		/*line-height: 1.4em !important;*/
 	}
 	@page {
-		margin: 0.5cm !important;
+        margin: 0cm !important;
+        size: portrait !important;
 	}
 	.print {
 		display: block !important;
-		width: 100% !important;
-		height: 100% !important;
+		width: 90% !important;
+        height: 90% !important;
+        zoom: 0.7 !important;
 	}
 
 	.no-print { 
-		display:none; 
+		display:none !important; 
 	}
 	
 	img { 
-		width: 400%;
-		height: auto;	
+        width: 250% !important;        
+		/*height: auto !important;	*/
 	}
 	nav, footer, button, video, audio, object, embed { 
-		display:none !important; 		
+		display: none !important; 		
 	}
 }

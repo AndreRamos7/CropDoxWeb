@@ -82,6 +82,25 @@ p{
     margin-top: 10px;
 }
 
+#video_tutorial h3{
+    border-radius: 0px;
+    background-color: #1d5297;
+    display: block;
+    padding: 7px;
+    color: white;
+    width: 200px;
+    margin: auto;
+}
+#video_tutorial{
+    display: block;
+    margin: auto;
+    text-align: center;
+    /*border: 3px solid #fae3c8;*/
+    height: 99%;
+}
+#video_tutorial video{
+    border: none;
+}
 #footer{
 	background-color: #1d5297;
 	/*background-image: url('/static/imagens/fundo_papel.jpg');*/

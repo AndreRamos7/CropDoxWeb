@@ -41,6 +41,15 @@
                 </article>
             </div>	
             <div class="col-sm-1 no-print" ></div>
+        </div>
+        <div class="row" id="">
+            <div id="video_tutorial" class="no-print">
+                <h3 >Vídeo tutorial</h3>
+                <video autoplay width="820" height="" controls loop>
+                    <source src="/static/videos/tutorial.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>	
     </div>	
 </div>
@@ -58,13 +67,6 @@ $("a.relink").click(function(){
     });
 });
 
-/*Modifica o conteúdo da página*/
-$("a#delete").click(function(){	
-    pagina = $(this).attr("id");
-    $("#conteudo").load("/static/content/" + pagina + ".html",function() {
-        console.log( "Load was performed." );
-    });
-});
 </script>
         
 
@@ -73,8 +75,11 @@ $("a#delete").click(function(){
 	var socket = io();//io.connect("http://cropdox.com:8080/");
 	
 	socket.on("mensagem", function(data){
-		console.log("mensagem é ", data);
-		//alert(data)
+        //data.data.mensagem
+        $("#android-msgs").html("<span class='badge badge-success'>" + data.mensagem + "</span>");
+        if(data.tipo == "delecao"){
+            //$("img#imagem_server").hide();
+        }
 	});
 
 	socket.on('mensagem android', function(data){
@@ -91,7 +96,7 @@ $("a#delete").click(function(){
 			
 	socket.on('connect', function(){
 		console.log("Connectado com o id: " + socket.id);
-		meu_id = socket.id;
+		var meu_id = socket.id;
         $("#qrcode").html("");
         
 		var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -108,9 +113,10 @@ $("a#delete").click(function(){
 
 	socket.emit("mensagem", "mensagem do navegador");
 
-
+    
     $("a#delete").click(function(){	
-        socket.emit("deletar", "arquivo");
+        socket.emit("deletar", "arquivo");        
+        //alert("O seu arquivo deletado com sucesso.");
     });
 
 </script>

@@ -57,7 +57,7 @@ var path = require('path');
 var options = {
 	dotfiles: 'ignore',
 	etag: false,
-	extensions: ['htm', 'html', 'css', 'js'],
+	extensions: ['htm', 'html', 'css', 'js', 'jpg', 'png'],
 	index: false,
 	maxAge: '1d',
 	redirect: false,
@@ -135,7 +135,7 @@ io.on("connection",function(client){
     //This is handle by current connected client 
     //client.emit('mensagem',{hello:'world'});
     //This is handle by every client
-    io.sockets.emit("mensagem",{data:"Esse dado é enviado do servidor pra todos os clientes"});
+    //io.sockets.emit("mensagem",{data:"Esse dado é enviado do servidor pra todos os clientes"});
     //app.saveSession(client.id);
 
     client.on("disconnect",function(){
@@ -145,11 +145,15 @@ io.on("connection",function(client){
     
     client.on("deletar",function(data){
         if(data == "arquivo"){
-            fs.unlink(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg', function (err) {            
+            fs.unlink(__dirname + '/static/uploads/default/' + email_do_usuario_logado + '.jpg', 
+            function (err) {            
                 if (err) {                                                 
                     console.error(err);                                    
-                } else{
-                    console.log('File has been Deleted');                           
+                } else{                  
+                    client.emit('mensagem', 
+                    {"mensagem":"Seu arquivo foi deletado com sucesso.", 
+                    "tipo": "delecao"});  
+                    console.log('Arquivo deletado com sucesso.');                           
                 }
             });  
         }
