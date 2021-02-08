@@ -65,8 +65,9 @@ var options = {
 	  res.set('x-timestamp', Date.now())
 	}
   }
-//app.use(express.static(path.join(__dirname + "static/", 'styles')));
+
 app.use("/static", express.static(path.join(__dirname, 'static'), options));
+
 
 // ============================ ROTAS =============================================
 app.use((req, res, next) => { //Cria um middleware onde todas as requests passam por ele
@@ -110,6 +111,11 @@ app.delete('/arquivo/:id/deletar', function(req, res){
     });  
  })
 
+  // cria uma rota para fornecer o arquivo app-ads.txt
+app.get('/app-ads.txt', function(req, res){	    
+	res.set('Content-Type', 'text/plain');
+	res.sendFile(__dirname + '/static/app-ads.txt');   
+});
  // cria uma rota para fornecer o arquivo de imagem
 app.get('/imagem_do_servidor', function(req, res){	
 	res.set('Content-Type', 'image/jpeg');

@@ -8,10 +8,11 @@
 .ladoalado{
 	float: left;
 }
-#codigo_qr{ 
-	display: flex;
-}
 
+#botao_atualizar_qr a, img{
+	display: block;
+	opacity: 1;
+}
 body{
 	background-color: lemonchiffon;
 }
@@ -77,6 +78,20 @@ p{
     border-radius: 10px;
 	padding: 5px;
 	cursor: none;
+}
+#codigo_qr{ 
+	display: flex;
+}
+#botao_atualizar_qr{
+	display: none;
+    position: absolute;
+    /*border: 1px solid rgb(0, 17, 252);*/
+    background-color: white;
+    width: 85%;
+    /*height: ;*/
+	padding: 25%;
+	opacity: 0.9;
+	border-radius: 50%;
 }
 .relink{
     margin-top: 10px;

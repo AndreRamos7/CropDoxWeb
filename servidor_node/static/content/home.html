@@ -16,8 +16,12 @@
             </div>
             <div class="col-lg-3 col-sm-3 no-print" >                
                 <div class="no-print" id="codigo_qr">				
-                    <div id="qrcode" title=""></div>				
+                    <div id="qrcode" title=""></div>
+                    <div class="" id="botao_atualizar_qr">				
+                        <a href="javascript:;" onclick="location.reload();"><img src='/static/imagens/update.png' ></a>
+                    </div>				
                 </div>
+                
                 <span id="msgs" class="badge badge-success"></span>	
             </div>	
             <div class="col-lg-4 col-sm-4">
@@ -87,6 +91,8 @@ $("a.relink").click(function(){
 		$("#android-msgs").html("<span class='badge badge-success'>Mensagem Android foi: data.url = " + data.url + "</span><br>");
         $("img#imagem_server").attr("src", data.url);   
         
+        $("#botao_atualizar_qr").show();
+        //botao_atualizar_qr
         $("a#delete").show();
         $("a#download").show();
         $("button#imprimir").show();     
