@@ -1,8 +1,8 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container-fluid">	
         <div class="row" id="">
-            <div class="col-sm-1 no-print" ></div>
-            <div class="col-sm-4 no-print" >
+            <div class="col-lg-1 col-sm-1 no-print" ></div>
+            <div class="col-lg-4 col-sm-4 no-print" >
                 <article id="instrucoes">
                     <h3>Instruções</h3>
                     <ol>
@@ -14,13 +14,13 @@
                     </ol>
                 </article>	
             </div>
-            <div class="col-sm-3 no-print" >                
+            <div class="col-lg-3 col-sm-3 no-print" >                
                 <div class="no-print" id="codigo_qr">				
                     <div id="qrcode" title=""></div>				
                 </div>
-                <span id="msgs" class="badge badge-success">...</span>	
+                <span id="msgs" class="badge badge-success"></span>	
             </div>	
-            <div class="col-sm-4">
+            <div class="col-lg-4 col-sm-4">
                 <h3 class="no-print"></h3>
                 <!--<header class="no-print">Leia as instruções. Sua Imagem será exibida aqui. </header>-->						
                 <article class="print">
@@ -28,24 +28,24 @@
                         <img id="imagem_server" src="/static/imagens/load.gif" width=200 height=>
                     </p>
                     <div id="android-msgs" class="no-print">
-                        <span class='badge badge-success'>Sua imagem será exibida aqui. Aguardando sua ação... </span>
+                        <span class='badge badge-success' style="width: 200px;">Sua imagem será exibida aqui. <br>Aguardando sua ação... </span>
                     </div>
                     <form action="javascript:;" class="no-print">
                         <div class="form-group">
                             <a id="delete" href="javascript:;" class="btn btn-danger ">Deletar</a>                        
                             <a id="download" href="/imagem_do_servidor/download" target="_blank" class="btn btn-primary botoes-largos">Download</a>                        
                             <button id="imprimir" class="btn btn-primary botoes-largos" onclick="window.print();">Print</button>                        								
-                            <br><span class="badge badge-warning">...</span>
+                            <br><span class="badge badge-warning"></span>
                         </div>													
                     </form>				
                 </article>
             </div>	
-            <div class="col-sm-1 no-print" ></div>
+            <div class="col-lg-1 col-sm-1 no-print" ></div>
         </div>
         <div class="row" id="">
-            <div id="video_tutorial" class="no-print">
+            <div id="video_tutorial" class="no-print col-lg-12 col-sm-12">
                 <h3 >Vídeo tutorial</h3>
-                <video autoplay width="820" height="" controls loop>
+                <video autoplay width="50%" height="" controls loop>
                     <source src="/static/videos/tutorial.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>

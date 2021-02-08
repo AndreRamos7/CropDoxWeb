@@ -42,6 +42,7 @@ build/Release
 area51/aprendendo_nodejs/node_modules/
 area51/projeto_socket/node_modules/
 
+servidor_node/static/videos/
 servidor_node/static/uploads/
 servidor_node/node_modules/
 node_modules/
